@@ -8,11 +8,15 @@ CREATE TABLE `users` (
   `clave` varchar(255) NOT NULL,
   `fecha_registro` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP()
 );
+INSERT INTO users(nombre, apellido, usuario, correo, telefono, clave)
+VALUES('JEAN', 'CASTILLO', 'castilloacostajean@gmail.com', 'castilloacostajean@gmail.com', '04242974834', 
+'$2y$10$6uHKeRwjOaqRnEQzXXkzle9WU3KHD0KR2NHZEcrEDvtk7X/rs/W5m')
 ---------------------------------------------------------------------------
 CREATE TABLE `estatus` (
   `id_sta` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `nom_sta` varchar(50) NOT NULL
 );
+INSERT INTO estatus (nom_sta)VALUES('INACTIVO')
 ---------------------------------------------------------------------------
 CREATE TABLE `privilegios` (
   `id_pri` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
@@ -20,6 +24,7 @@ CREATE TABLE `privilegios` (
   `id_sta` int NOT NULL,
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
+INSERT INTO privilegios(nom_pri, id_sta)VALUES('ADMINISTRADOR', 1)
 ---------------------------------------------------------------------------
 CREATE TABLE `users_privilegios` (
   `id_upri` int NOT NULL AUTO_INCREMENT,
@@ -29,6 +34,7 @@ CREATE TABLE `users_privilegios` (
   FOREIGN KEY (`id_user`) REFERENCES `users`(`id_user`),
   FOREIGN KEY (`id_pri`) REFERENCES `privilegios`(`id_pri`)
 );
+INSERT INTO users_privilegios(id_user, id_pri)VALUES(1, 1)
 ---------------------------------------------------------------------------
 CREATE TABLE `users_status` (
   `id_usta` int NOT NULL AUTO_INCREMENT,
@@ -38,6 +44,8 @@ CREATE TABLE `users_status` (
   FOREIGN KEY (`id_user`) REFERENCES `users` (`id_user`),
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
+INSERT INTO users_status(id_user, id_sta)VALUES(1, 1)
+
 ---------------------------------------------------------------------------
 CREATE TABLE `tipo_persona` (
   `id_per` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
