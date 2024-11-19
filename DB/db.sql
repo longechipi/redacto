@@ -161,3 +161,10 @@ CREATE TABLE `correlativo` (
   `cod` int NOT NULL,
   `anio` int NOT NULL 
 );
+---------------------------------------------------------------------------
+CREATE TABLE `tasa` (
+  `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `moneda` varchar(3) NOT NULL,
+  `fecha` DATE NOT NULL,
+  `valor` varchar(10) NOT NULL
+);

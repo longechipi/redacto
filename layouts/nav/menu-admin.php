@@ -28,7 +28,7 @@
 					<li><a href="banco">Bancos</a></li>
 					<li><a href="forma_pago">Forma de Pago</a></li>
 					<li><a href="datatable.html">Correlativos</a></li>
-					<li><a href="datatable.html">Tasa BCV</a></li>
+					<li><a href="tasa">Tasa BCV</a></li>
 				</ul>
 			</li>
 			<li>
