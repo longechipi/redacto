@@ -15,10 +15,10 @@ if ($matches > 0) {
     $res = $list[0][6];
     trim($res);
     $res = str_replace(",", ".", $res);
-    $servername = "localhost";
-    $username = "root_autogas";
+    $servidor = "66.85.132.90";
+    $usuario = "root_autogas";
     $password = "19341986Chipi**";
-    $dbname = "autogas";
+    $base_datos = "redacto";
 
 $conn = new mysqli($servidor, $usuario, $password, $base_datos);
 if ($conn->connect_error) {
