@@ -128,6 +128,7 @@ CREATE TABLE `forma_pago` (
   `id_sta` int NOT NULL,
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
+INSERT forma_pago(tip_pago, id_sta)VALUES('TRANSFERENCIA', 1)
 ---------------------------------------------------------------------------
 CREATE TABLE `banco` (
   `id_ban` int PRIMARY KEY NOT NULL AUTO_INCREMENT,

@@ -10,38 +10,31 @@ session_start();
 	<div class="main-container">
 		<div class="pd-ltr-20">
             <div class="title">
-                <h5>Registro de Banco</h5>
+                <h5>Registro Forma de Pago</h5>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="banco">Banco</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Registro</li>
+                    <li class="breadcrumb-item"><a href="forma_pago">Forma de Pago</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Registro </li>
                 </ol>
             </nav>
 
         <div class="card-box pd-20 height-100-p mb-30">
-            <form id="banco"> 
+            <form id="form_pag"> 
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label>Nombre del banco</label> <span class="text-danger">(*)</span>
-                            <input type="text" class="form-control" name="nom_ban" style="text-transform:uppercase" required>
+                            <label>Forma de Pago</label> <span class="text-danger">(*)</span>
+                            <input type="text" class="form-control" name="for_pag" style="text-transform:uppercase" required>
                             
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label>Codigo del banco</label> <span class="text-danger">(*)</span>
-                            <input type="text" maxlength="4" minlength="4" class="form-control" name="cod_ban" required>
-                        </div>
-                    </div>
-
-                    <div class="col-md-4 col-sm-12">
-                        <div class="form-group">
                             <label>Estatus</label> <span class="text-danger">(*)</span>
-                            <select name="sta_ban" id="sta_ban" class="form-control" required>
+                            <select name="sta_form" id="sta_form" class="form-control" required>
                                 <option value="" disabled selected>SELECCIONAR</option>
                                 <option value="1">ACTIVO</option>
                                 <option value="2">INACTIVO</option>
@@ -62,32 +55,32 @@ session_start();
         <?php include('../layouts/footer.php');?>
 <script>
 $(document).ready(function(){
-    $('#banco').submit(function(e){
+    $('#form_pag').submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: '../model/banco/insert_banco.php',
+            url: '../model/form_pago/insert_form_pago.php',
             type: 'POST',
-            data: $('#banco').serialize(),
+            data: $('#form_pag').serialize(),
             success: function(data){
                 const res = JSON.parse(data);
                 if(res.status == 'error'){
                     swal({
-                        title: 'Error al registrar el banco',
+                        title: 'Error al registrar',
                         text: res.message,
                         type: 'error',
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
                     })
-                    document.getElementById('banco').reset();
+                    document.getElementById('form_pag').reset();
                 }else{
                     swal({
-                        title: 'Banco Registrado con Exito',
+                        title: 'Registro Exitoso',
                         text: res.message,
                         type: 'success',
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
                     })
-                    document.getElementById('banco').reset();
+                    document.getElementById('form_pag').reset();
                 }
             }
         });
