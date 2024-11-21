@@ -11,7 +11,7 @@
 					<span class="micon dw dw-edit2"></span><span class="mtext">GESTIÓN</span>
 				</a>
 				<ul class="submenu">
-					<li><a href="form-basic.html">Usuarios Web</a></li>
+					<li><a href="usuarios">Usuarios Web</a></li>
 					<li><a href="advanced-components.html">Privilegios</a></li>
 					<!-- <li><a href="form-wizard.html">Form Wizard</a></li>
 					<li><a href="html5-editor.html">HTML5 Editor</a></li>
@@ -27,7 +27,7 @@
 				<ul class="submenu">
 					<li><a href="banco">Bancos</a></li>
 					<li><a href="forma_pago">Forma de Pago</a></li>
-					<li><a href="datatable.html">Correlativos</a></li>
+					<li><a href="#">Correlativos</a></li>
 					<li><a href="tasa">Tasa BCV</a></li>
 				</ul>
 			</li>

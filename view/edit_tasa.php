@@ -3,13 +3,12 @@ include('../layouts/header.php');
 require('../conf/conex.php');
 require('../utils/utils.php');
 session_start();
-@$id_form = $_POST['id_form'];
-validar_post($id_form, 'inicio');
+@$tasa_id = $_POST['tasa_id'];
+validar_post($tasa_id, 'inicio');
 
-$a="SELECT * FROM forma_pago WHERE id_pag = $id_form; ";
+$a="SELECT * FROM tasa WHERE id = $tasa_id; ";
 $ares= $conn->query($a);
 $row = $ares->fetch_assoc();
-
 ?>
 <body>
 <?php include('../layouts/navbar.php');?>
@@ -19,48 +18,36 @@ $row = $ares->fetch_assoc();
 	<div class="main-container">
 		<div class="pd-ltr-20">
             <div class="title">
-                <h5>Editando Forma de Pago: <?php echo $row['tip_pago']; ?></h5>
+                <h5>Editando Tasa fecha: <?php echo $row['fecha']; ?></h5>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
-                <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="forma_pago">Forma de Pago</a></li>
-                    <li class="breadcrumb-item active" aria-current="page">Editar Forma </li>
+                    <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
+                    <li class="breadcrumb-item"><a href="banco">Tasa</a></li>
+                    <li class="breadcrumb-item active" aria-current="page">Editar Tasa</li>
                 </ol>
             </nav>
 
         <div class="card-box pd-20 height-100-p mb-30">
             <form id="banco"> 
-                <input type="text" name="id_form" value="<?php echo $id_form; ?>" hidden/>
+                <input type="text" name="tasa_id" value="<?php echo $tasa_id; ?>" hidden/>
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label>Forma de Pago</label> <span class="text-danger">(*)</span>
-                            <input type="text" class="form-control" name="nom_ban" 
-                            style="text-transform:uppercase" value="<?php echo $row['tip_pago']; ?>" required>
+                            <label>Fecha</label> <span class="text-danger">(*)</span>
+                            <input type="date" class="form-control" name="fecha" 
+                            style="text-transform:uppercase" value="<?php echo $row['fecha']; ?>" readonly required>
+                            <small>La fecha No se puede editar</small>
                             
                         </div>
                     </div>
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
-                            <label>Estatus</label> <span class="text-danger">(*)</span>
-                            <select name="sta_ban" id="sta_ban" class="form-control" required>
-                                <?php
-								$b = $conn->query("SELECT id_sta, nom_sta FROM estatus WHERE id_sta IN (1,2)");
-								while ($rowa = mysqli_fetch_array($b)) {
-									if ($rowa['id_sta'] == $row['id_sta']) {
-										echo '<option value="' . $rowa['id_sta'] . '" selected>' . $rowa['nom_sta'] . '</option>';
-									} else {
-										echo '<option value="' . $rowa['id_sta'] . '">' . $rowa['nom_sta'] . '</option>';
-									}
-								}
-                                $conn->close(); 
-                                ?>
-                            </select>
+                            <label>Monto</label> <span class="text-danger">(*)</span>
+                            <input type="text" class="form-control" name="valor" value="<?php echo $row['valor']; ?>" required>
                         </div>
                     </div>
-
                 </div>
 
                 <div class="col-md-12">
@@ -77,7 +64,7 @@ $(document).ready(function(){
     $('#banco').submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: '../model/form_pago/update_form.php',
+            url: '../model/tasa/update_tasa.php',
             type: 'POST',
             data: $('#banco').serialize(),
             success: function(data){
@@ -100,7 +87,7 @@ $(document).ready(function(){
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
                     }).then(function() {
-                        window.location.href = 'forma_pago';
+                        window.location.href = 'tasa';
                     });
                     document.getElementById('banco').reset();
                 }

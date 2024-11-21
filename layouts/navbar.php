@@ -1,9 +1,21 @@
+<?php
+require('../conf/conex.php');
+$a="SELECT valor FROM tasa 
+WHERE MONTH(fecha) = MONTH(CURDATE()) 
+AND DAY(fecha) = DAY(CURDATE())";
+$ares= $conn->query($a);
+if ($ares->num_rows > 0) {
+	$tasaBCV=$row["valor"];
+}else{
+	$tasaBCV=0.00;
+}
+?>
 <div class="header">
 		<div class="header-left">
 			<div class="menu-icon dw dw-menu"></div>
 			<!-- <div class="search-toggle-icon dw dw-search2" data-toggle="header_search"></div> -->
 			<div class="header-search">
-				Tasa BCV del Dia
+				Tasa BCV del Dia : <?php echo round($tasaBCV, 2); ?>
 			</div>
 		</div>
 		<div class="header-right">
