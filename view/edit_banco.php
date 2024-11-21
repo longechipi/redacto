@@ -1,8 +1,12 @@
 <?php 
 include('../layouts/header.php');
 require('../conf/conex.php');
+require('../utils/utils.php');
 session_start();
-$ban_id = $_POST['ban_id'];
+
+@$ban_id = $_POST['ban_id'];
+validar_post($ban_id, 'inicio');
+
 $a="SELECT * FROM banco WHERE id_ban = $ban_id; ";
 $ares= $conn->query($a);
 $row = $ares->fetch_assoc();
@@ -16,7 +20,7 @@ $row = $ares->fetch_assoc();
 	<div class="main-container">
 		<div class="pd-ltr-20">
             <div class="title">
-                <h5>Editando Banco: <?php echo ($ares->num_rows > 0) ? $row['banco'] : 'SIN DATO DISPONIBLE'; ?></h5>
+                <h5>Editando Banco: <?php $row['banco']; ?></h5>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -34,7 +38,7 @@ $row = $ares->fetch_assoc();
                         <div class="form-group">
                             <label>Nombre del banco</label> <span class="text-danger">(*)</span>
                             <input type="text" class="form-control" name="nom_ban" 
-                            style="text-transform:uppercase" value="<?php echo ($ares->num_rows > 0) ? $row['banco'] : 'SIN DATO DISPONIBLE'; ?>" required>
+                            style="text-transform:uppercase" value="<?php echo $row['banco']; ?>" required>
                             
                         </div>
                     </div>
@@ -42,7 +46,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>Codigo del banco</label> <span class="text-danger">(*)</span>
-                            <input type="text" maxlength="4" minlength="4" class="form-control" name="cod_ban" value="<?php echo ($ares->num_rows > 0) ? $row['cod_ban'] : '0000'; ?>" required>
+                            <input type="text" maxlength="4" minlength="4" class="form-control" name="cod_ban" value="<?php echo $row['cod_ban']; ?>" required>
                         </div>
                     </div>
 

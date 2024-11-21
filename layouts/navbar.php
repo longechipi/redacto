@@ -4,8 +4,11 @@ $a="SELECT valor FROM tasa
 WHERE MONTH(fecha) = MONTH(CURDATE()) 
 AND DAY(fecha) = DAY(CURDATE())";
 $ares= $conn->query($a);
-$row = $ares->fetch_assoc();
-$tasaBCV = $row['valor'];
+if ($ares->num_rows > 0) {
+	$tasaBCV=$row["valor"];
+}else{
+	$tasaBCV=0.00;
+}
 ?>
 <div class="header">
 		<div class="header-left">

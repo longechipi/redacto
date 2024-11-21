@@ -1,8 +1,11 @@
 <?php 
 include('../layouts/header.php');
 require('../conf/conex.php');
+require('../utils/utils.php');
 session_start();
-$id_form = $_POST['id_form'];
+@$id_form = $_POST['id_form'];
+validar_post($id_form, 'inicio');
+
 $a="SELECT * FROM forma_pago WHERE id_pag = $id_form; ";
 $ares= $conn->query($a);
 $row = $ares->fetch_assoc();
@@ -16,7 +19,7 @@ $row = $ares->fetch_assoc();
 	<div class="main-container">
 		<div class="pd-ltr-20">
             <div class="title">
-                <h5>Editando Forma de Pago: <?php echo ($ares->num_rows > 0) ? $row['tip_pago'] : 'SIN DATO DISPONIBLE'; ?></h5>
+                <h5>Editando Forma de Pago: <?php echo $row['tip_pago']; ?></h5>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -34,7 +37,7 @@ $row = $ares->fetch_assoc();
                         <div class="form-group">
                             <label>Forma de Pago</label> <span class="text-danger">(*)</span>
                             <input type="text" class="form-control" name="nom_ban" 
-                            style="text-transform:uppercase" value="<?php echo ($ares->num_rows > 0) ? $row['tip_pago'] : 'SIN DATO DISPONIBLE'; ?>" required>
+                            style="text-transform:uppercase" value="<?php echo $row['tip_pago']; ?>" required>
                             
                         </div>
                     </div>

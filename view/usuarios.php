@@ -50,7 +50,7 @@ session_start();
                     while($row = $ares->fetch_assoc()){
                         ?>
                         <tr>
-                            <td><?php echo strtoupper($row['apellido']) . ' ' .strtoupper($row['nombre']);?></td>
+                            <td><?php echo strtoupper($row['nombre']) . ' ' .strtoupper($row['apellido']);?></td>
                             <td><?php echo strtoupper($row['usuario']); ?></td>
                             <td><?php echo $row['nom_sta'];?></td>
                             <td><?php echo $row['nom_pri'];?></td>
@@ -60,7 +60,7 @@ session_start();
                                         <i class="dw dw-more"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                        <a class="dropdown-item" href="#" data-ban-id=<?php echo $row['id_user']?>><i class="dw dw-edit2"></i> Editar</a>
+                                        <a class="dropdown-item" href="#" data-user-id=<?php echo $row['id_user']?>><i class="dw dw-edit2"></i> Editar</a>
                                     </div>
                                 </div>
                             </td>
@@ -87,9 +87,9 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.dropdown-item', function() {
-        var banId = $(this).data('ban-id');
-        var form = $('<form method="POST" action="edit_banco"></form>');
-        form.append('<input type="hidden" name="ban_id" value="' + banId + '">');
+        var userId = $(this).data('user-id');
+        var form = $('<form method="POST" action="edit_usuario"></form>');
+        form.append('<input type="hidden" name="user_id" value="' + userId + '">');
         $('body').append(form);
         form.submit();
     });

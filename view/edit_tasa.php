@@ -1,8 +1,11 @@
 <?php 
 include('../layouts/header.php');
 require('../conf/conex.php');
+require('../utils/utils.php');
 session_start();
-$tasa_id = $_POST['tasa_id'];
+@$tasa_id = $_POST['tasa_id'];
+validar_post($tasa_id, 'inicio');
+
 $a="SELECT * FROM tasa WHERE id = $tasa_id; ";
 $ares= $conn->query($a);
 $row = $ares->fetch_assoc();
@@ -15,7 +18,7 @@ $row = $ares->fetch_assoc();
 	<div class="main-container">
 		<div class="pd-ltr-20">
             <div class="title">
-                <h5>Editando Tasa fecha: <?php echo ($ares->num_rows > 0) ? $row['fecha'] : 'SIN DATO DISPONIBLE'; ?></h5>
+                <h5>Editando Tasa fecha: <?php echo $row['fecha']; ?></h5>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -33,7 +36,7 @@ $row = $ares->fetch_assoc();
                         <div class="form-group">
                             <label>Fecha</label> <span class="text-danger">(*)</span>
                             <input type="date" class="form-control" name="fecha" 
-                            style="text-transform:uppercase" value="<?php echo ($ares->num_rows > 0) ? $row['fecha'] : 'SIN DATO DISPONIBLE'; ?>" readonly required>
+                            style="text-transform:uppercase" value="<?php echo $row['fecha']; ?>" readonly required>
                             <small>La fecha No se puede editar</small>
                             
                         </div>
@@ -42,7 +45,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>Monto</label> <span class="text-danger">(*)</span>
-                            <input type="text" class="form-control" name="valor" value="<?php echo ($ares->num_rows > 0) ? $row['valor'] : '0000'; ?>" required>
+                            <input type="text" class="form-control" name="valor" value="<?php echo $row['valor']; ?>" required>
                         </div>
                     </div>
                 </div>

@@ -6,7 +6,7 @@ $apel_user = strtoupper(trim($_POST['apel_user']));
 $user = trim($_POST['user']); //FILTRO DE CORREO
 $email = trim($_POST['email']); //FILTRO DE CORREO
 $telf = trim($_POST['telf']); //LIBRERIA DE TELEFONO
-$pass = trim($_POST['pass']); //PENDIENTE CON EL HASH
+$pass = password_hash(trim($_POST['pass']), PASSWORD_DEFAULT);
 //---- Datos para la tabla users_estatus ----//
 $status = $_POST['status'];
 //---- Datos para la tabla users_privilegio ----//
