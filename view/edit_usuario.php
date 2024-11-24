@@ -71,12 +71,20 @@ $row = $ares->fetch_assoc();
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-3 mb-4">
                         <div class="form-group">
-                            <label>Teléfono</label> <span class="text-danger">(*)</span>
-                            <input type="mail" class="form-control" style="text-transform:uppercase" name="telf" value="<?php echo $row['telefono']; ?>" required>
+                            <label for="telf">Teléfono:</label>
+                            <input type="text" name="telf" id="telf" maxlength="12" minlength="12" class="form-control" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;" value="<?php echo $row['telefono']; ?>" required />
                         </div>
                     </div>
+                    <script>
+                        const input = document.querySelector("#telf");
+                        window.intlTelInput(input, {
+                            loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
+                            initialCountry: "ve",
+                        });
+                    </script>
+                    
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">

@@ -6,17 +6,12 @@ $user_id = trim($_POST['user_id']);
 $nom_user = strtoupper(trim($_POST['nom_user']));
 $apel_user = strtoupper(trim($_POST['apel_user']));
 $mail_user = limpiarCorreo(trim($_POST['mail_user']));
-$telf = trim($_POST['telf']);
+$telf_error = filter_var(trim($_POST['telf']), FILTER_SANITIZE_NUMBER_INT);
+$telf = preg_replace('/[^0-9]/', '', $telf_error);
 $esta_user = trim($_POST['esta_user']);
 $est_pri = trim($_POST['est_pri']);
 
 
-$a="SELECT correo FROM users WHERE usuario = '$mail_user'";
-$ares= $conn->query($a);
-if($ares->num_rows > 0){
-    echo json_encode(array('status' => 'error', 'message' => 'Ya Existe el Correo Electrónico en Nuestro Sistema'));
-    exit;
-}else{
     //---- UPDATE EN LA TABLA DE USUARIO ----//
     $b="UPDATE users SET nombre = '$nom_user', 
     apellido= '$apel_user', 
@@ -46,6 +41,6 @@ if($ares->num_rows > 0){
             echo json_encode(array('status' => 'error', 'message' => 'Error al Actualizar el Usuario' . $conn->error));
             exit;
         }
-}
+
 $conn->close();
 ?>

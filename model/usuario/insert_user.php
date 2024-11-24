@@ -6,7 +6,8 @@ $nom_user = strtoupper(trim($_POST['nom_user']));
 $apel_user = strtoupper(trim($_POST['apel_user']));
 $user = limpiarCorreo(trim($_POST['user']));
 $email = limpiarCorreo(trim($_POST['email']));
-$telf = trim($_POST['telf']); //LIBRERIA DE TELEFONO
+$telf_error = filter_var(trim($_POST['telf']), FILTER_SANITIZE_NUMBER_INT);
+$telf = preg_replace('/[^0-9]/', '', $telf_error);
 $pass = password_hash(trim($_POST['pass']), PASSWORD_DEFAULT);
 //---- Datos para la tabla users_estatus ----//
 $status = $_POST['status'];

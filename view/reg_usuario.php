@@ -51,12 +51,19 @@ session_start();
                         </div>
                     </div>
 
-                    <div class="col-md-4 col-sm-12">
+                    <div class="col-md-3 mb-4">
                         <div class="form-group">
-                            <label>Telefono</label> <span class="text-danger">(*)</span>
-                            <input type="text" class="form-control" name="telf" required />
+                            <label for="telf">Teléfono:</label>
+                            <input type="text" name="telf" id="telf" maxlength="12" minlength="12" class="form-control" onKeypress="if (event.keyCode < 48 || event.keyCode > 57) event.returnValue = false;"  required />
                         </div>
                     </div>
+                    <script>
+                        const input = document.querySelector("#telf");
+                        window.intlTelInput(input, {
+                            loadUtilsOnInit: "https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/utils.js",
+                            initialCountry: "ve",
+                        });
+                    </script>
 
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">

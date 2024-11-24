@@ -1,5 +1,6 @@
 <?php
 require('../conf/conex.php');
+date_default_timezone_set('America/Caracas');
 $z="SELECT * FROM tasa ORDER BY fecha DESC LIMIT 1";
 $zres= $conn->query($z);
 if ($zres->num_rows > 0) {
