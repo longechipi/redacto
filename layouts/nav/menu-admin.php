@@ -1,3 +1,12 @@
+<?php 
+$x="SELECT * FROM privilegios_menu";
+$xres= $conn->query($x);
+$xrow = $xres->fetch_assoc();
+
+
+
+?>
+
 <div class="menu-block customscroll">
 	<div class="sidebar-menu">
 		<ul id="accordion-menu">
@@ -6,7 +15,9 @@
 					<span class="micon dw dw-house-1"></span><span class="mtext">INICIO</span>
 				</a>
 			</li>
-			<li class="dropdown">
+			<?php 
+			if($xrow['gestion'] == 1) { ?>
+				<li class="dropdown">
 				<a href="javascript:;" class="dropdown-toggle">
 					<span class="micon dw dw-edit2"></span><span class="mtext">GESTIÓN</span>
 				</a>
@@ -20,55 +31,68 @@
 					<li><a href="image-dropzone.html">Image Dropzone</a></li> -->
 				</ul>
 			</li>
-			<li class="dropdown">
-				<a href="javascript:;" class="dropdown-toggle">
-					<span class="micon dw dw-library"></span><span class="mtext">CONFIGURACIÓN</span>
-				</a>
-				<ul class="submenu">
-					<li><a href="banco">Bancos</a></li>
-					<li><a href="forma_pago">Forma de Pago</a></li>
-					<li><a href="#">Correlativos</a></li>
-					<li><a href="tasa">Tasa BCV</a></li>
-				</ul>
-			</li>
-			<li>
-				<a href="calendar.html" class="dropdown-toggle no-arrow">
-					<span class="micon dw dw-calendar1"></span><span class="mtext">PAGOS</span>
-				</a>
-			</li>
-			<li class="dropdown">
-				<a href="javascript:;" class="dropdown-toggle">
-					<span class="micon dw dw-apartment"></span><span class="mtext"> REPORTES </span>
-				</a>
-				<ul class="submenu">
-					<li><a href="ui-buttons.html">Buttons</a></li>
-					<li><a href="ui-cards.html">Cards</a></li>
-					<li><a href="ui-cards-hover.html">Cards Hover</a></li>
-					<li><a href="ui-modals.html">Modals</a></li>
-					<li><a href="ui-tabs.html">Tabs</a></li>
-					<li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
-					<li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
-					<li><a href="ui-notification.html">Notification</a></li>
-					<li><a href="ui-timeline.html">Timeline</a></li>
-					<li><a href="ui-progressbar.html">Progressbar</a></li>
-					<li><a href="ui-typography.html">Typography</a></li>
-					<li><a href="ui-list-group.html">List group</a></li>
-					<li><a href="ui-range-slider.html">Range slider</a></li>
-					<li><a href="ui-carousel.html">Carousel</a></li>
-				</ul>
-			</li>
-			<li class="dropdown">
-				<a href="javascript:;" class="dropdown-toggle">
-					<span class="micon dw dw-paint-brush"></span><span class="mtext">USUARIOS</span>
-				</a>
-				<ul class="submenu">
-					<li><a href="font-awesome.html">Compradores</a></li>
-					<li><a href="foundation.html">Vendedores</a></li>
-					<li><a href="ionicons.html">Vehiculos</a></li>
-					<!-- <li><a href="themify.html">Themify Icons</a></li>
-					<li><a href="custom-icon.html">Custom Icons</a></li> -->
-				</ul>
-			</li>
+			<?php } ?>
+			<?php 
+			if($xrow['configuracion'] == 1) { ?>
+				<li class="dropdown">
+					<a href="javascript:;" class="dropdown-toggle">
+						<span class="micon dw dw-library"></span><span class="mtext">CONFIGURACIÓN</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="banco">Bancos</a></li>
+						<li><a href="forma_pago">Forma de Pago</a></li>
+						<li><a href="#">Correlativos</a></li>
+						<li><a href="tasa">Tasa BCV</a></li>
+					</ul>
+				</li>
+			<?php } ?>
+			<?php 
+				if($xrow['pagos'] == 1) { ?>
+				<li>
+					<a href="calendar.html" class="dropdown-toggle no-arrow">
+						<span class="micon dw dw-calendar1"></span><span class="mtext">PAGOS</span>
+					</a>
+				</li>
+			<?php } ?>
+			<?php 
+				if($xrow['reportes'] == 1) { ?>
+				<li class="dropdown">
+					<a href="javascript:;" class="dropdown-toggle">
+						<span class="micon dw dw-apartment"></span><span class="mtext"> REPORTES </span>
+					</a>
+					<ul class="submenu">
+						<li><a href="ui-buttons.html">Buttons</a></li>
+						<li><a href="ui-cards.html">Cards</a></li>
+						<li><a href="ui-cards-hover.html">Cards Hover</a></li>
+						<li><a href="ui-modals.html">Modals</a></li>
+						<li><a href="ui-tabs.html">Tabs</a></li>
+						<li><a href="ui-tooltip-popover.html">Tooltip &amp; Popover</a></li>
+						<li><a href="ui-sweet-alert.html">Sweet Alert</a></li>
+						<li><a href="ui-notification.html">Notification</a></li>
+						<li><a href="ui-timeline.html">Timeline</a></li>
+						<li><a href="ui-progressbar.html">Progressbar</a></li>
+						<li><a href="ui-typography.html">Typography</a></li>
+						<li><a href="ui-list-group.html">List group</a></li>
+						<li><a href="ui-range-slider.html">Range slider</a></li>
+						<li><a href="ui-carousel.html">Carousel</a></li>
+					</ul>
+				</li>
+			<?php } ?>
+			<?php 
+				if($xrow['usuarios'] == 1) { ?>
+				<li class="dropdown">
+					<a href="javascript:;" class="dropdown-toggle">
+						<span class="micon dw dw-paint-brush"></span><span class="mtext">USUARIOS</span>
+					</a>
+					<ul class="submenu">
+						<li><a href="font-awesome.html">Compradores</a></li>
+						<li><a href="foundation.html">Vendedores</a></li>
+						<li><a href="ionicons.html">Vehiculos</a></li>
+						<!-- <li><a href="themify.html">Themify Icons</a></li>
+						<li><a href="custom-icon.html">Custom Icons</a></li> -->
+					</ul>
+				</li>
+			<?php } ?>
 			<li class="dropdown">
 				<a href="../salir.php" class="dropdown-toggle no-arrow">
 					<span class="micon dw dw-analytics-21"></span><span class="mtext">SALIR</span>

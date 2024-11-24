@@ -179,5 +179,5 @@ CREATE TABLE `privilegios_menu` (
   `usuarios` int NOT NULL,
   FOREIGN KEY (`id_pri`) REFERENCES `privilegios` (`id_pri`)
 );
-INSERT INTO privilegios_menu(id_user, gestion, configuracion, pagos, reportes, usuarios)
+INSERT INTO privilegios_menu(id_pri, gestion, configuracion, pagos, reportes, usuarios)
 VALUES(1, 1, 1, 1, 1, 1)

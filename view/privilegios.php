@@ -23,7 +23,7 @@ session_start();
         <div class="card-box pd-20 height-100-p mb-30">
             <div class="col-md-12">
                 <div class="text-center">
-                    <a href="reg_usuario" class="btn btn-primary" rel="noopener noreferrer"><i class="icon-copy dw dw-pencil-1"></i>&nbsp;REGISTRAR PRIVILEGIO</a>
+                    <a href="reg_privilegio" class="btn btn-primary" rel="noopener noreferrer"><i class="icon-copy dw dw-pencil-1"></i>&nbsp;REGISTRAR PRIVILEGIO</a>
                 </div>
             </div>
             <hr>

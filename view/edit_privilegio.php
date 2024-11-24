@@ -32,7 +32,6 @@ $row = $ares->fetch_assoc();
             </nav>
             
         <div class="card-box pd-20 height-100-p mb-30">
-            <form id="banco"> 
                 <input type="text" name="id_pri" value="<?php echo $id_pri; ?>" hidden/>
                 <div class="row">
                     <div class="col-md-12">
@@ -46,7 +45,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>
-                            <input type="checkbox" class="switch-btn" data-color="#0099ff" <?php echo ($row['gestion'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" id="gestion" class="switch-btn" data-color="#0099ff" <?php echo ($row['gestion'] == 1) ? 'checked' : ''; ?>>
                             GESTIÓN
                             </label>
                         </div>
@@ -55,7 +54,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>
-                            <input type="checkbox" class="switch-btn" data-color="#0099ff" <?php echo ($row['configuracion'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" id="configuracion" class="switch-btn" data-color="#0099ff" <?php echo ($row['configuracion'] == 1) ? 'checked' : ''; ?>>
                             CONFIGURACIÓN
                             </label>
                         </div>
@@ -64,7 +63,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>
-                            <input type="checkbox" class="switch-btn" data-color="#0099ff" <?php echo ($row['pagos'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" id="pagos" class="switch-btn" data-color="#0099ff" <?php echo ($row['pagos'] == 1) ? 'checked' : ''; ?>>
                             PAGOS
                             </label>
                         </div>
@@ -73,7 +72,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>
-                            <input type="checkbox" class="switch-btn" data-color="#0099ff" <?php echo ($row['reportes'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" id="reportes" class="switch-btn" data-color="#0099ff" <?php echo ($row['reportes'] == 1) ? 'checked' : ''; ?>>
                             REPORTES
                             </label>
                         </div>
@@ -82,7 +81,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>
-                            <input type="checkbox" class="switch-btn" data-color="#0099ff" <?php echo ($row['usuarios'] == 1) ? 'checked' : ''; ?>>
+                            <input type="checkbox" id="usuarios" class="switch-btn" data-color="#0099ff" <?php echo ($row['usuarios'] == 1) ? 'checked' : ''; ?>>
                             USUARIOS
                             </label>
                         </div>
@@ -92,30 +91,29 @@ $row = $ares->fetch_assoc();
 
                 <div class="col-md-12 mt-4">
                     <div class="text-center">
-                        <button type="submit" class="btn btn-primary"><i class="icon-copy dw dw-floppy-disk"></i>&nbsp;GUARDAR</button>
                         <a href="javascript:history.back()" class="btn btn-outline-primary" rel="noopener noreferrer"><i class="icon-copy dw dw-curved-arrow1"></i>&nbsp;VOLVER </a>
                     </div>
                 </div>
-            </form>
         </div>
         <?php include('../layouts/footer.php');?>
 <script>
 $(document).ready(function(){
-
     var elems = Array.prototype.slice.call(document.querySelectorAll('.switch-btn'));
 		$('.switch-btn').each(function() {
 			new Switchery($(this)[0], $(this).data());
 		});
-
-    $('#banco').submit(function(e){
-        e.preventDefault();
-        $.ajax({
-            url: '../model/form_pago/update_form.php',
-            type: 'POST',
-            data: $('#banco').serialize(),
-            success: function(data){
-                const res = JSON.parse(data);
-                if(res.status == 'error'){
+        var checkbox = document.querySelector('.switch-btn');
+        $('.switch-btn').click(function (){
+            var priviId = <?php echo $id_pri; ?>; 
+            var cambio = this.checked ? 1 : 0;
+            var menu = this.id;
+            $.ajax({
+                url: '../model/privilegio/upd_privi.php', 
+                type: 'POST',
+                data: { priviId: priviId, menu: menu, cambio: cambio },
+                success: function(data) {
+                    const res = JSON.parse(data);
+                    if(res.status == 'error'){
                     swal({
                         title: 'Error al Actualizar',
                         text: res.message,
@@ -124,7 +122,6 @@ $(document).ready(function(){
                         confirmButtonText: 'Aceptar'
                     })
                     return
-                    document.getElementById('banco').reset();
                 }else{
                     swal({
                         title: 'Actualización Exitosa',
@@ -132,10 +129,7 @@ $(document).ready(function(){
                         type: 'success',
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
-                    }).then(function() {
-                        window.location.href = 'forma_pago';
-                    });
-                    document.getElementById('banco').reset();
+                    })
                 }
             }
         });
