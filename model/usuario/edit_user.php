@@ -9,7 +9,7 @@ $mail_user = limpiarCorreo(trim($_POST['mail_user']));
 $telf = trim($_POST['telf']);
 $esta_user = trim($_POST['esta_user']);
 $est_pri = trim($_POST['est_pri']);
-$pass = password_hash(trim($_POST['pass']), PASSWORD_DEFAULT);
+
 
 $a="SELECT correo FROM users WHERE usuario = '$mail_user'";
 $ares= $conn->query($a);
@@ -18,8 +18,16 @@ if($ares->num_rows > 0){
     exit;
 }else{
     //---- UPDATE EN LA TABLA DE USUARIO ----//
-    $b="UPDATE users SET nombre = '$nom_user', apellido= '$apel_user', correo= '$mail_user', telefono='$telf', clave = '$pass'
-    WHERE id_user= $user_id";
+    $b="UPDATE users SET nombre = '$nom_user', 
+    apellido= '$apel_user', 
+    correo= '$mail_user', 
+    telefono='$telf'"; 
+    if (!empty($_POST['pass'])) {
+        $pass = password_hash(trim($_POST['pass']), PASSWORD_DEFAULT);
+        $b .= ", clave = '$pass'";
+    }
+    
+    $b .= " WHERE id_user = $user_id";
         if ($conn->query($b) === TRUE){
             $c="UPDATE users_status SET id_sta = $esta_user WHERE id_user = $user_id";
                 if ($conn->query($c) === TRUE){
