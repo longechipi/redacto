@@ -2155,7 +2155,7 @@ body.IE .register-page-wrap .container {
 }
 
 .login-box {
-	max-width: 500px;
+	/* max-width: 500px; */
 	width: 100%;
 	padding: 40px 20px;
 	margin: 5px auto
@@ -2253,7 +2253,7 @@ body.IE .register-page-wrap .container {
 .register-page-wrap,
 .register-page-wrap .wizard-content .wizard {
 	position: relative;
-	overflow: auto
+	/* overflow: auto */
 }
 
 .register-page-wrap .wizard-content .wizard .steps {
@@ -4633,10 +4633,10 @@ body.IE .register-page-wrap .container {
 		display: none
 	}
 	.register-page-wrap .wizard-content .wizard {
-		padding-left: 300px
+		/* padding-left: 300px */
 	}
 	.register-page-wrap .wizard-content .wizard .steps {
-		width: 300px
+		/* width: 300px */
 	}
 }
 

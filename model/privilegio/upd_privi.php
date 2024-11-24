@@ -28,7 +28,4 @@ if($bres->num_rows > 0){
         echo json_encode(array('status' => 'error', 'message' => 'Ocurrio un error al Actualizar el Perfil' . $conn->error));
     }
 }
-
-
-
 $conn->close();
