@@ -25,15 +25,7 @@
 	<!-- SWEET ALERT -->
 	<link rel="stylesheet" type="text/css" href="../src/plugins/sweetalert2/sweetalert2.css">
 	
-	<script src='https://www.google.com/recaptcha/api.js?render=6LfC_4gqAAAAAOqmn-Kxfa2MH_i8GLZOXtafjw16'> </script>
-	<script>
-	grecaptcha.ready(function() {
-	grecaptcha.execute('6LfC_4gqAAAAAOqmn-Kxfa2MH_i8GLZOXtafjw16', {action: 'ejemplo'})
-	.then(function(token) {
-	var recaptchaResponse = document.getElementById('recaptchaResponse');
-	recaptchaResponse.value = token;
-	});});
-	</script>
+
 	<!-- Query Mask -->
 	<!-- <script src="../src/plugins/jquery-mask/jquery.mask.js"></script> -->
 </head>
