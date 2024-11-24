@@ -1,10 +1,11 @@
 <?php 
 require_once('../../conf/conex.php');
+require_once('../../utils/utils.php');
 //---- Datos para la tabla users ----//
 $nom_user = strtoupper(trim($_POST['nom_user']));
 $apel_user = strtoupper(trim($_POST['apel_user']));
-$user = trim($_POST['user']); //FILTRO DE CORREO
-$email = trim($_POST['email']); //FILTRO DE CORREO
+$user = limpiarCorreo(trim($_POST['user']));
+$email = limpiarCorreo(trim($_POST['email']));
 $telf = trim($_POST['telf']); //LIBRERIA DE TELEFONO
 $pass = password_hash(trim($_POST['pass']), PASSWORD_DEFAULT);
 //---- Datos para la tabla users_estatus ----//
@@ -23,10 +24,11 @@ if($ares->num_rows > 0){
     VALUES('$nom_user', '$apel_user', '$user', '$email', '$telf', '$pass')";
     if ($conn->query($b) === TRUE) {
         //---- INSERT EN LA TABLA DE USUARIO ESTATUS ----//
-        $c="INSERT INTO users_status(id_user, id_sta)VALUES('PENDIENTE', $status)";
+        $id_user = mysqli_insert_id($conn);
+        $c="INSERT INTO users_status(id_user, id_sta)VALUES($id_user, $status)";
         if ($conn->query($c) === TRUE) {
             //---- INSERT EN LA TABLA DE USUARIO PRIVILEGIOS ----//
-            $d="INSERT INTO users_privilegios(id_user, id_pri)VALUES('PENDIENTE', $priv)";
+            $d="INSERT INTO users_privilegios(id_user, id_pri)VALUES($id_user, $priv)";
             if ($conn->query($d) === TRUE) {
                 echo json_encode(array('status' => 'success', 'message' => 'Usuario Registrado Exitosamente'));
             }

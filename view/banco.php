@@ -58,7 +58,7 @@ session_start();
                                         <i class="dw dw-more"></i>
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-                                        <a class="dropdown-item" href="#" data-ban-id=<?php echo $row['id_ban']?>><i class="dw dw-edit2"></i> Editar</a>
+                                        <a class="dropdown-item" href="#" data-id-ban=<?php echo $row['id_ban']?>><i class="dw dw-edit2"></i> Editar</a>
                                     </div>
                                 </div>
                             </td>
@@ -85,9 +85,9 @@ $(document).ready(function(){
     });
 
     $(document).on('click', '.dropdown-item', function() {
-        var banId = $(this).data('ban-id');
+        var id_ban = $(this).data('id-ban');
         var form = $('<form method="POST" action="edit_banco"></form>');
-        form.append('<input type="hidden" name="ban_id" value="' + banId + '">');
+        form.append('<input type="hidden" name="id_ban" value="' + id_ban + '">');
         $('body').append(form);
         form.submit();
     });

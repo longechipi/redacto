@@ -4,10 +4,10 @@ require('../conf/conex.php');
 require('../utils/utils.php');
 session_start();
 
-@$ban_id = $_POST['ban_id'];
-validar_post($ban_id, 'inicio');
+@$id_ban = $_POST['id_ban'];
+validar_post($id_ban, 'inicio');
 
-$a="SELECT * FROM banco WHERE id_ban = $ban_id; ";
+$a="SELECT * FROM banco WHERE id_ban = $id_ban";
 $ares= $conn->query($a);
 $row = $ares->fetch_assoc();
 
@@ -20,7 +20,7 @@ $row = $ares->fetch_assoc();
 	<div class="main-container">
 		<div class="pd-ltr-20">
             <div class="title">
-                <h5>Editando Banco: <?php $row['banco']; ?></h5>
+                <h5>Editando Banco: <?php echo $row['banco']; ?></h5>
             </div>
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
@@ -32,7 +32,7 @@ $row = $ares->fetch_assoc();
 
         <div class="card-box pd-20 height-100-p mb-30">
             <form id="banco"> 
-                <input type="text" name="ban_id" value="<?php echo $ban_id; ?>" hidden/>
+                <input type="text" name="id_ban" value="<?php echo $id_ban; ?>" hidden/>
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">

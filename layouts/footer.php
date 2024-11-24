@@ -12,4 +12,8 @@
 	<script src="../src/plugins/datatables/js/dataTables.bootstrap4.min.js"></script>
 	<script src="../src/plugins/datatables/js/dataTables.responsive.min.js"></script>
 	<script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
+	<!-- switchery js -->
+	<script src="../src/plugins/switchery/switchery.min.js"></script>
+
+	<script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
 	<!-- <script src="../vendors/scripts/dashboard.js"></script> -->

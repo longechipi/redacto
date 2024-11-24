@@ -12,7 +12,7 @@
 				</a>
 				<ul class="submenu">
 					<li><a href="usuarios">Usuarios Web</a></li>
-					<li><a href="advanced-components.html">Privilegios</a></li>
+					<li><a href="privilegios">Privilegios</a></li>
 					<!-- <li><a href="form-wizard.html">Form Wizard</a></li>
 					<li><a href="html5-editor.html">HTML5 Editor</a></li>
 					<li><a href="form-pickers.html">Form Pickers</a></li>

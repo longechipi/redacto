@@ -15,13 +15,13 @@ session_start();
             <nav aria-label="breadcrumb" role="navigation">
                 <ol class="breadcrumb">
                     <li class="breadcrumb-item"><a href="inicio">Inicio</a></li>
-                    <li class="breadcrumb-item"><a href="usuarios">Usuario</a></li>
+                    <li class="breadcrumb-item"><a href="usuarios">Usuarios</a></li>
                     <li class="breadcrumb-item active" aria-current="page">Registro</li>
                 </ol>
             </nav>
 
         <div class="card-box pd-20 height-100-p mb-30">
-            <form id="banco"> 
+            <form id="user"> 
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
@@ -106,32 +106,32 @@ session_start();
         <?php include('../layouts/footer.php');?>
 <script>
 $(document).ready(function(){
-    $('#banco').submit(function(e){
+    $('#user').submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: '../model/banco/insert_banco.php',
+            url: '../model/usuario/insert_user.php',
             type: 'POST',
-            data: $('#banco').serialize(),
+            data: $('#user').serialize(),
             success: function(data){
                 const res = JSON.parse(data);
                 if(res.status == 'error'){
                     swal({
-                        title: 'Error al registrar el banco',
+                        title: 'Error al registrar el Usuario',
                         text: res.message,
                         type: 'error',
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
                     })
-                    document.getElementById('banco').reset();
+                    document.getElementById('user').reset();
                 }else{
                     swal({
-                        title: 'Banco Registrado con Exito',
+                        title: 'Usuario Registrado con Exito',
                         text: res.message,
                         type: 'success',
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
                     })
-                    document.getElementById('banco').reset();
+                    document.getElementById('user').reset();
                 }
             }
         });

@@ -168,3 +168,16 @@ CREATE TABLE `tasa` (
   `fecha` DATE NOT NULL,
   `valor` varchar(10) NOT NULL
 );
+---------------------------------------------------------------------------
+CREATE TABLE `privilegios_menu` (
+  `id_menu` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `id_pri` int NOT NULL,
+  `gestion` int NOT NULL,
+  `configuracion` int NOT NULL,
+  `pagos` int NOT NULL,
+  `reportes` int NOT NULL,
+  `usuarios` int NOT NULL,
+  FOREIGN KEY (`id_pri`) REFERENCES `privilegios` (`id_pri`)
+);
+INSERT INTO privilegios_menu(id_user, gestion, configuracion, pagos, reportes, usuarios)
+VALUES(1, 1, 1, 1, 1, 1)

@@ -38,7 +38,7 @@ $row = $ares->fetch_assoc();
 
         <div class="card-box pd-20 height-100-p mb-30">
             <form id="banco"> 
-                <input type="text" name="ban_id" value="<?php echo $user_id; ?>" hidden/>
+                <input type="text" name="user_id" value="<?php echo $user_id; ?>" hidden/>
                 <div class="row">
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
@@ -81,7 +81,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>Estatus</label> <span class="text-danger">(*)</span>
-                            <select name="sta_ban" id="sta_ban" class="form-control" required>
+                            <select name="esta_user" id="esta_user" class="form-control" required>
                                 <?php
 								$b = $conn->query("SELECT id_sta, nom_sta FROM estatus WHERE id_sta IN (1,2)");
 								while ($rowa = mysqli_fetch_array($b)) {
@@ -100,7 +100,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>Privilegio</label> <span class="text-danger">(*)</span>
-                            <select name="sta_ban" id="sta_ban" class="form-control" required>
+                            <select name="est_pri" id="est_pri" class="form-control" required>
                                 <?php
 								$c = $conn->query("SELECT id_pri, nom_pri FROM privilegios WHERE id_sta = 1");
 								while ($rowc = mysqli_fetch_array($c)) {
@@ -139,7 +139,7 @@ $(document).ready(function(){
     $('#banco').submit(function(e){
         e.preventDefault();
         $.ajax({
-            url: '../model/banco/update_banco.php',
+            url: '../model/usuario/edit_user.php',
             type: 'POST',
             data: $('#banco').serialize(),
             success: function(data){
@@ -162,7 +162,7 @@ $(document).ready(function(){
                         confirmButtonColor: '#1b61c2',
                         confirmButtonText: 'Aceptar'
                     }).then(function() {
-                        window.location.href = 'banco';
+                        window.location.href = 'usuarios';
                     });
                     document.getElementById('banco').reset();
                 }
