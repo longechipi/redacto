@@ -12,6 +12,9 @@
 	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/css/intlTelInput.css">
 	<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
 
+	<script src="https://www.google.com/recaptcha/api.js?render=6LfC_4gqAAAAAOqmn-Kxfa2MH_i8GLZOXtafjw16"></script>
+  </head>
+
 	<!-- Mobile Specific Metas -->
 	<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1">
 
@@ -32,7 +35,7 @@
 						<div class="login-title">
 							<h2 class="text-center text-primary">Registro de Usuario</h2>
 						</div>
-						<form id="register" method="POST" action="model/register/insert_register.php">
+						<form id="register" action="model/register/insert_register.php" method="post">
 							
 							<div class="row">
 								<div class="col-md-4 col-sm-12">
@@ -102,8 +105,17 @@
 	<script src="vendors/scripts/process.js"></script>
 	<script src="vendors/scripts/layout-settings.js"></script>
 	<script>
-		
-
-	</script>
+		$('#register').submit(function(event) {
+			event.preventDefault();
+			
+			grecaptcha.ready(function() {
+				grecaptcha.execute('6LfC_4gqAAAAAOqmn-Kxfa2MH_i8GLZOXtafjw16', {action: 'registro'}).then(function(token) {
+					$('#register').prepend('<input type="hidden" name="token" value="' + token + '">');
+					$('#register').prepend('<input type="hidden" name="action" value="registro">');
+					$('#register').unbind('submit').submit();
+				});
+			});
+	  });
+	  </script>
 </body>
 </html>
