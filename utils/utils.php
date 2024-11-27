@@ -12,3 +12,11 @@ function limpiarCorreo($usuario) {
     $usuario = filter_var($usuario, FILTER_SANITIZE_EMAIL);
     return $usuario;
 }
+
+//------ LIMPIAR CADENA ------ //
+function limpiarCadena($cadena) {
+    $cadena = trim($cadena);
+    $cadena = strip_tags($cadena);
+    $cadena = preg_replace('/[^a-zA-Z0-9\s]/', '', $cadena);
+    return $cadena;
+}
