@@ -60,7 +60,19 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                          //---- INSERT EN LA TABLA DE USUARIO PRIVILEGIOS ----//
                         $d="INSERT INTO users_privilegios(id_user, id_pri)VALUES($id_user, 4)";
                             if ($conn->query($d) === TRUE) {
-                                echo "Usuario registrado con exito";
+                                echo '<script>
+                                swal({
+                                    type: "success",
+                                    title: "Exito",
+                                    text: "¡Felicidades el usuario se registro correctamente!",
+                                    showConfirmButton: true,
+                                    confirmButtonText: "Cerrar"
+                                    }).then(function(result){
+                                        if(result.value){                   
+                                        window.location = "../../index.html";
+                                        }
+                                    });
+                                </script>';
                             }else{
                                 echo '<script>
                                         swal({
@@ -122,7 +134,8 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                 });
             </script>';
     }
-} else {
-    // Si entra aqui, es un robot....
-	echo "Lo siento, parece que eres un Robot";
-}
+ } 
+ //else {
+//     // Si entra aqui, es un robot....
+// 	echo "Lo siento, parece que eres un Robot";
+// }
