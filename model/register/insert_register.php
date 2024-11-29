@@ -23,8 +23,10 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //---- DATOS DEL FORMULARIO ----//
         $usuario = limpiarCorreo(trim($_POST["usuario"]));
+        $clave_tmp = trim($_POST['pass']);
         $nombre = limpiarCadena(trim($_POST["nombre"]));
         $apellido = limpiarCadena(trim($_POST["apellido"]));
+        $full_name = $nombre . ' ' . $apellido;
         $telf_error = filter_var(trim($_POST['telf']), FILTER_SANITIZE_NUMBER_INT);
         $telf = preg_replace('/[^0-9]/', '', $telf_error);
         $email = limpiarCorreo(trim($_POST["mail"]));

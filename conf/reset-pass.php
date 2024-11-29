@@ -1,3 +1,7 @@
+<header>
+    <link rel="stylesheet" type="text/css" href="../../src/plugins/sweetalert2/sweetalert2.css">
+    <script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
+</header>
 <?php 
 require_once('conex.php');
 include('../utils/utils.php');
@@ -18,7 +22,19 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $bres= $conn->query($b);
             include_once('../mail/reset-pass.php');
         }else{
-            echo "no existe";
+            echo '<script>
+            swal({
+                type: "error",
+                title: "Error",
+                text: "¡El Usuario Ingresado no existe en nuestra Plataforma!",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+                }).then(function(result){
+                    if(result.value){                   
+                    window.location = "../index.html";
+                    }
+                });
+            </script>';
         }
 
 
