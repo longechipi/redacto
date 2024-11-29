@@ -1,10 +1,7 @@
 <?php 
-$x="SELECT * FROM privilegios_menu";
+$x="SELECT * FROM privilegios_menu WHERE id_pri = 1";
 $xres= $conn->query($x);
 $xrow = $xres->fetch_assoc();
-
-
-
 ?>
 
 <div class="menu-block customscroll">

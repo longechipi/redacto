@@ -16,4 +16,7 @@
 	<script src="../src/plugins/switchery/switchery.min.js"></script>
 
 	<script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
+
+	<!-- FORMATO DE MONTO BOLIVARES -->
+	<script src="../src/plugins/mask/mask.js"></script>
 	<!-- <script src="../vendors/scripts/dashboard.js"></script> -->

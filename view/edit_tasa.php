@@ -45,7 +45,7 @@ $row = $ares->fetch_assoc();
                     <div class="col-md-4 col-sm-12">
                         <div class="form-group">
                             <label>Monto</label> <span class="text-danger">(*)</span>
-                            <input type="text" class="form-control" name="valor" value="<?php echo $row['valor']; ?>" required>
+                            <input type="text" class="form-control monto" name="valor" value="<?php echo $row['valor']; ?>" required>
                         </div>
                     </div>
                 </div>
@@ -94,6 +94,9 @@ $(document).ready(function(){
             }
         });
     });
+    $('.monto').mask('000000000.00', {
+		reverse: true
+	});
 });
 </script>
 

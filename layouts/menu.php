@@ -33,7 +33,7 @@ $fullname = $_SESSION['nombre'];
         include '../layouts/nav/menu-asis.php';
         break;
     //---- menu para Usuarios ----//
-    case 3:
+    case 4:
         include '../layouts/nav/menu-user.php';
         break;
    }

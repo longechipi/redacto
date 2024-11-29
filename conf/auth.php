@@ -1,3 +1,7 @@
+<header>
+    <link rel="stylesheet" type="text/css" href="../../src/plugins/sweetalert2/sweetalert2.css">
+    <script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
+</header>
 <?php 
 require_once('conex.php');
 session_start();
@@ -12,7 +16,19 @@ function limpiarCorreo($user) {
 }
     $user = limpiarCorreo($usuario);
     if (!filter_var($user, FILTER_VALIDATE_EMAIL)) {
-        echo "El correo electrónico no es válido.";
+        echo '<script>
+            swal({
+                type: "error",
+                title: "Error",
+                text: "¡El correo electronico no tiene el formato correcto!",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+                }).then(function(result){
+                    if(result.value){                   
+                    window.location = "../index.html";
+                    }
+                });
+            </script>';
         return;
     }else{
         $a="SELECT U.id_user, U.nombre, U.apellido, U.usuario, U.clave, US.id_sta, UP.id_pri 
@@ -36,19 +52,67 @@ function limpiarCorreo($user) {
                     header('location: ../view/inicio');
                     exit;
                 }elseif($row['id_sta'] == 2){
-                    echo "Usuario Inactivo";
+                    echo '<script>
+                        swal({
+                            type: "error",
+                            title: "Error",
+                            text: "¡El Usuario se encuentra Inactivo!",
+                            showConfirmButton: true,
+                            confirmButtonText: "Cerrar"
+                            }).then(function(result){
+                                if(result.value){                   
+                                window.location = "../index.html";
+                                }
+                            });
+                        </script>';
                 
                 }
             }else{
-                echo "Contraseña incorrecta";
+                echo '<script>
+                    swal({
+                        type: "error",
+                        title: "Error",
+                        text: "¡La Contraseña no es la Correcta!",
+                        showConfirmButton: true,
+                        confirmButtonText: "Cerrar"
+                        }).then(function(result){
+                            if(result.value){                   
+                            window.location = "../index.html";
+                            }
+                        });
+                    </script>';
             }
         }else{
-            echo "Usuario no encontrado";
+            echo '<script>
+                swal({
+                    type: "error",
+                    title: "Error",
+                    text: "¡El usuario no existe en nuestra Plataforma!",
+                    showConfirmButton: true,
+                    confirmButtonText: "Cerrar"
+                    }).then(function(result){
+                        if(result.value){                   
+                        window.location = "../index.html";
+                        }
+                    });
+                </script>';
         }
     }
 
 }else{
-    echo "No se recibieron datos del formulario";
+    echo '<script>
+            swal({
+                type: "error",
+                title: "Error",
+                text: "¡No se recibieron los datos del Formulario de Ingreso!",
+                showConfirmButton: true,
+                confirmButtonText: "Cerrar"
+                }).then(function(result){
+                    if(result.value){                   
+                    window.location = "../index.html";
+                    }
+                });
+            </script>';
 }
 
 

@@ -95,7 +95,7 @@ if ($zres->num_rows > 0) {
 						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Perfil</a>
 						<!-- <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a> -->
 						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Ayuda</a>
-						<a class="dropdown-item" href="login.html"><i class="dw dw-logout"></i> Salir</a>
+						<a class="dropdown-item" href="../salir.php"><i class="dw dw-logout"></i> Salir</a>
 					</div>
 				</div>
 			</div>
