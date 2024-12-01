@@ -28,7 +28,7 @@ try {
 
     //Recipients
     $mail->setFrom(FROM_EMAIL, FROM_NAME);
-    $mail->addAddress($user);
+    $mail->addAddress($usuario);
     $mail->addReplyTo(REPLY_TO_EMAIL, REPLY_TO_NAME);
     $mail->addCC(CC_EMAIL);
 
