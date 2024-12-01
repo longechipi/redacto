@@ -4,12 +4,11 @@
 </header>
 <?php
 require('../../conf/conex.php');
+require('../../conf/env.php');
 require('../../utils/utils.php');
-define("RECAPTCHA_V3_SECRET_KEY", '6LfC_4gqAAAAANVt8ZaII_KyOwXdJrynx4iFQIej');
 $token = $_POST['token'];
 $action = $_POST['action'];
  
-// call curl to POST request
 $ch = curl_init();
 curl_setopt($ch, CURLOPT_URL,"https://www.google.com/recaptcha/api/siteverify");
 curl_setopt($ch, CURLOPT_POST, 1);
@@ -22,14 +21,14 @@ $arrResponse = json_decode($response, true);
 if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrResponse["score"] >= 0.6) {
     if ($_SERVER["REQUEST_METHOD"] == "POST") {
         //---- DATOS DEL FORMULARIO ----//
-        $usuario = limpiarCorreo(trim($_POST["usuario"]));
+        $usuario = limpiarCorreo(strtolower(trim($_POST["usuario"])));
         $clave_tmp = trim($_POST['pass']);
-        $nombre = limpiarCadena(trim($_POST["nombre"]));
-        $apellido = limpiarCadena(trim($_POST["apellido"]));
+        $nombre = limpiarCadena(trim(strtoupper($_POST["nombre"])));
+        $apellido = limpiarCadena(trim(strtoupper($_POST["apellido"])));
         $full_name = $nombre . ' ' . $apellido;
         $telf_error = filter_var(trim($_POST['telf']), FILTER_SANITIZE_NUMBER_INT);
         $telf = preg_replace('/[^0-9]/', '', $telf_error);
-        $email = limpiarCorreo(trim($_POST["mail"]));
+        $email = limpiarCorreo(strtolower(trim($_POST["mail"])));
         $pass = password_hash(trim($_POST['pass']), PASSWORD_DEFAULT);
 
         $a="SELECT usuario FROM users WHERE usuario = '$usuario' OR correo ='$email'";
@@ -56,17 +55,24 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                 if ($conn->query($b) === TRUE) {
                     //---- INSERT EN LA TABLA DE USUARIO ESTATUS ----//
                     $id_user = mysqli_insert_id($conn);
-                    //---- Preguntar ----//
-                    $c="INSERT INTO users_status(id_user, id_sta)VALUES($id_user, 1)";
+                    //---- SE REGISTRA INACTIVO ----//
+                    $c="INSERT INTO users_status(id_user, id_sta)VALUES($id_user, 2)";
                     if ($conn->query($c) === TRUE) {
                          //---- INSERT EN LA TABLA DE USUARIO PRIVILEGIOS ----//
                         $d="INSERT INTO users_privilegios(id_user, id_pri)VALUES($id_user, 4)";
                             if ($conn->query($d) === TRUE) {
+                                //---------- REGISTRO USUARIO EN TEMPORAL ------------ //
+                                $codigo = mt_rand(10000000, 99999999);
+                                $e = "INSERT INTO registro_tmp(id_user, codigo)VALUES($id_user, '$codigo')";
+                                if ($conn->query($e) === TRUE) {
+                                     //---------- ENVIO DE MAIL PARA VERIFICACION DE USER ----------//
+                                     include('../../mail/register-user.php');
+                                
                                 echo '<script>
                                 swal({
                                     type: "success",
                                     title: "Exito",
-                                    text: "¡Felicidades el usuario se registro correctamente!",
+                                    text: "¡Se Envio una clave de activación a tu Correo para que termines el registro y actives tu usuario!",
                                     showConfirmButton: true,
                                     confirmButtonText: "Cerrar"
                                     }).then(function(result){
@@ -75,6 +81,7 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                                         }
                                     });
                                 </script>';
+                                }
                             }else{
                                 echo '<script>
                                         swal({
@@ -95,7 +102,7 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                         swal({
                             type: "error",
                             title: "Error",
-                            text: "¡Error al Registrar el usuario !",
+                            text: "¡Error al Registrar el usuario!",
                             showConfirmButton: true,
                             confirmButtonText: "Cerrar"
                             }).then(function(result){
@@ -137,6 +144,7 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
             </script>';
     }
  } 
+ $conn->close();
  //else {
 //     // Si entra aqui, es un robot....
 // 	echo "Lo siento, parece que eres un Robot";

@@ -14,3 +14,6 @@ define('REPLY_TO_NAME', 'Informacion');
 define('CC_EMAIL', 'castilloacostajean@gmail.com');
 //-----------------FIN VARIABLES DE ENVIO DE CORREO -----------------//
 
+//----------------- VARIABLES DE SEGURIDAD DE GOOGLE CAPTCHA -----------------//
+define('RECAPTCHA_V3_SECRET_KEY', '6LfC_4gqAAAAANVt8ZaII_KyOwXdJrynx4iFQIej');
+

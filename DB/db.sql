@@ -181,3 +181,9 @@ CREATE TABLE `privilegios_menu` (
 );
 INSERT INTO privilegios_menu(id_pri, gestion, configuracion, pagos, reportes, usuarios)
 VALUES(1, 1, 1, 1, 1, 1)
+---------------------------------------------------------------------------
+CREATE TABLE `registro_tmp` (
+  `id` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
+  `id_user` int NOT NULL,
+  `codigo` varchar(50) NOT NULL
+);

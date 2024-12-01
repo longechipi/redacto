@@ -1,44 +1,4 @@
-<?php
-   require('../conf/env.php'); //Variables de Entorno
-	require ('../PHPMailer-master/src/Exception.php');
-	require ('../PHPMailer-master/src/PHPMailer.php');
-	require ('../PHPMailer-master/src/SMTP.php');
-	use PHPMailer\PHPMailer\PHPMailer;
-	use PHPMailer\PHPMailer\Exception;
-
-	$mail = new PHPMailer(true);
-
-	if(!$_POST) exit;
-
-	// Email verification, do not edit.
-	function isEmail($email_booking) {
-		return(preg_match("/^[_a-z0-9-]+(\.[_a-z0-9-]+)*@[a-z0-9-]+(\.[a-z0-9-]+)*(\.[a-z]{2,})$/",$email_booking ));
-	}	
-    
-try {
-    //Server settings
-    $mail->isSMTP();                    //Send using SMTP
-    $mail->SMTPDebug = 0;               //Enable verbose debug output
-    $mail->Host       = SMTP_HOST;      //Set the SMTP server to send through
-    $mail->SMTPAuth   = true;           //Enable SMTP authentication
-    $mail->Username   = SMTP_USERNAME;  //SMTP username
-    $mail->Password   = SMTP_PASSWORD;  //SMTP password
-    $mail->SMTPSecure = SMTP_SECURE;    //Enable implicit TLS encryption
-    $mail->Port       = SMTP_PORT;     //TCP port to connect to; use 587 if you have set `SMTPSecure = PHPMailer::ENCRYPTION_STARTTLS`
-
-    //Recipients
-    $mail->setFrom(FROM_EMAIL, FROM_NAME);
-    $mail->addAddress($user);
-    $mail->addReplyTo(REPLY_TO_EMAIL, REPLY_TO_NAME);
-    $mail->addCC(CC_EMAIL);
-
-    //Attachments
-    //$mail->addAttachment('../img/app_banner_logo.png');    //Optional name
-
-    //Content
-    $mail->isHTML(true);                                  //Set email format to HTML
-    $mail->Subject = 'Activacion de Usuario' ;
-    $mail->Body    = '<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
 <html xmlns="http://www.w3.org/1999/xhtml" xmlns:v="urn:schemas-microsoft-com:vml" xmlns:o="urn:schemas-microsoft-com:office:office" lang="en">
 
 <head>
@@ -354,7 +314,7 @@ width: 440px !important;
 <table class=t2 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
 <tr>
 <td>
-<div style="font-size:0px;"><img class=t0 style="width:40%;margin-left: 30%;" alt="" src="https://app.wgdigital.com.ve/img/logo.jpg" /></div>
+<div style="font-size:0px;"><img class=t0 style="width:40%;margin-left: 30%;" alt="" src="../img/logo.jpg" /></div>
 </td>
 </tr>
 </table>
@@ -417,7 +377,7 @@ width: 440px !important;
 
 <td class=t17 style="width:448px;">
 
-<p class=t16 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:30px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;"><a class=t30 href="https://app.wgdigital.com.ve/activar_user.php?cod='.$codigo.'&id_user='.$id_user.'" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#454545;" target=_blank><span class=t29 style="margin:0;Margin:0;font-style:italic;">ACTIVAR USUARIO</span></p>
+<p class=t16 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:30px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;"><a class=t30 href="../activar_user.php?cod=78945612344444&id_user=2" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#454545;" target=_blank><span class=t29 style="margin:0;Margin:0;font-style:italic;">ACTIVAR USUARIO</span></p>
 </td>
 </tr>
 </table>
@@ -548,12 +508,4 @@ width: 440px !important;
 </div>
 </body>
 
-</html>';
-
-    $mail->send();
-    //echo "<script language='javascript'> alert('¡Se ha creado su registro!'); window.location.href='index.php'; </script>";
-    //echo '1';
-	} catch (Exception $e) {
-    echo "Error en el envío del correo: {$mail->ErrorInfo}";
-	}
-?>
+</html>
