@@ -66,8 +66,7 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                                 $e = "INSERT INTO registro_tmp(id_user, codigo)VALUES($id_user, '$codigo')";
                                 if ($conn->query($e) === TRUE) {
                                      //---------- ENVIO DE MAIL PARA VERIFICACION DE USER ----------//
-                                     include('../../mail/register-user.php');
-                                
+
                                 echo '<script>
                                 swal({
                                     type: "success",
@@ -81,6 +80,7 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                                         }
                                     });
                                 </script>';
+                                include('../../mail/register-user.php');
                                 }
                             }else{
                                 echo '<script>

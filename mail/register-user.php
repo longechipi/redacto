@@ -551,8 +551,6 @@ width: 440px !important;
 </html>';
 
     $mail->send();
-    //echo "<script language='javascript'> alert('¡Se ha creado su registro!'); window.location.href='index.php'; </script>";
-    //echo '1';
 	} catch (Exception $e) {
     echo "Error en el envío del correo: {$mail->ErrorInfo}";
 	}
