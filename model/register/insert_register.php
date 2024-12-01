@@ -6,6 +6,7 @@
 require('../../conf/conex.php');
 require('../../conf/env.php');
 require('../../utils/utils.php');
+
 $token = $_POST['token'];
 $action = $_POST['action'];
  
@@ -143,9 +144,9 @@ if($arrResponse["success"] == '1' && $arrResponse["action"] == $action && $arrRe
                 });
             </script>';
     }
- } 
+ //} 
  $conn->close();
  //else {
 //     // Si entra aqui, es un robot....
 // 	echo "Lo siento, parece que eres un Robot";
-// }
+ }
