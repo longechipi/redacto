@@ -14,8 +14,9 @@
 	<script src="../src/plugins/datatables/js/responsive.bootstrap4.min.js"></script>
 	<!-- switchery js -->
 	<script src="../src/plugins/switchery/switchery.min.js"></script>
-
+	<!-- sweetalert2 js -->
 	<script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
+	<script src="../src/scripts/inputs.js"></script>
 
 	<!-- FORMATO DE MONTO BOLIVARES -->
 	<script src="../src/plugins/mask/mask.js"></script>

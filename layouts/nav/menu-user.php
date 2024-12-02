@@ -13,15 +13,33 @@ $xrow = $xres->fetch_assoc();
 				</a>
 			</li>
 			<?php 
+			if($xrow['documentos'] == 1) { ?>
+				<li class="dropdown">
+				<a href="javascript:;" class="dropdown-toggle">
+					<span class="micon dw dw-edit2"></span><span class="mtext">DOCUMENTOS</span>
+				</a>
+				<ul class="submenu">
+					<li><a href="new_doc">Nuevo Documento</a></li>
+					<li><a href="privilegios">Borradores</a></li>
+					<li><a href="privilegios">Pagados</a></li>
+					<!-- <li><a href="form-wizard.html">Form Wizard</a></li>
+					<li><a href="html5-editor.html">HTML5 Editor</a></li>
+					<li><a href="form-pickers.html">Form Pickers</a></li>
+					<li><a href="image-cropper.html">Image Cropper</a></li>
+					<li><a href="image-dropzone.html">Image Dropzone</a></li> -->
+				</ul>
+			</li>
+			<?php } ?>
+
+			<?php 
 			if($xrow['gestion'] == 1) { ?>
 				<li class="dropdown">
 				<a href="javascript:;" class="dropdown-toggle">
 					<span class="micon dw dw-edit2"></span><span class="mtext">GESTIÓN</span>
 				</a>
 				<ul class="submenu">
-					<li><a href="reg_compra">Registrar Comprador</a></li>
-					<li><a href="reg_vendedor">Registrar Vendedor</a></li>
-					<li><a href="reg_vendedor">Registrar Vehiculo</a></li>
+					<li><a href="usuarios">Usuarios Web</a></li>
+					<li><a href="privilegios">Privilegios</a></li>
 					<!-- <li><a href="form-wizard.html">Form Wizard</a></li>
 					<li><a href="html5-editor.html">HTML5 Editor</a></li>
 					<li><a href="form-pickers.html">Form Pickers</a></li>

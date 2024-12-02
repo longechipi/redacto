@@ -6,7 +6,7 @@ session_start();
 @$id_pri = $_POST['id_pri'];
 validar_post($id_pri, 'inicio');
 
-$a="SELECT P.id_pri, P.nom_pri, PM.gestion, PM.configuracion, PM.pagos, PM.reportes, PM.usuarios
+$a="SELECT P.id_pri, P.nom_pri, PM.*
 FROM privilegios P
 LEFT JOIN privilegios_menu PM ON P.id_pri = PM.id_pri 
 WHERE P.id_pri = $id_pri ";
@@ -83,6 +83,15 @@ $row = $ares->fetch_assoc();
                             <label>
                             <input type="checkbox" id="usuarios" class="switch-btn" data-color="#0099ff" <?php echo ($row['usuarios'] == 1) ? 'checked' : ''; ?>>
                             USUARIOS
+                            </label>
+                        </div>
+                    </div>
+
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>
+                            <input type="checkbox" id="documentos" class="switch-btn" data-color="#0099ff" <?php echo ($row['documentos'] == 1) ? 'checked' : ''; ?>>
+                            DOCUMENTOS
                             </label>
                         </div>
                     </div>
