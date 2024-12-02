@@ -31,3 +31,24 @@ function letras(input,event){
   input.focus();
   return false; 
 }
+
+//-------- FUNCION PARA VALIDAR FECHAS QUE NO SEAN MAYORES A LA ACTUAL ----------//
+function validarFecha(campo) {
+    var fechaActual = new Date();
+    var añoActual = fechaActual.getFullYear();
+    var mesActual = fechaActual.getMonth() + 1; // Sumamos 1 porque getMonth() devuelve valores de 0 a 11
+    var diaActual = fechaActual.getDate();
+    var fechaActualFormateada = añoActual + '-' + (mesActual < 10 ? '0' + mesActual : mesActual) + '-' + (diaActual < 10 ? '0' + diaActual : diaActual);
+    var fechaIngresada = $(campo).val();
+  
+    if (fechaIngresada >= fechaActualFormateada) {
+      swal({
+        title: 'Error',
+        text: 'La Fecha no puede ser Superior a la Actual',
+        type: 'error',
+        confirmButtonColor: '#1b61c2',
+        confirmButtonButtonText: 'Aceptar'
+      });
+      $(campo).val('');
+    }
+  }

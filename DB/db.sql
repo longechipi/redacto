@@ -53,6 +53,7 @@ CREATE TABLE `tipo_persona` (
   `id_sta` int NOT NULL,
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
+INSERT INTO tipo_persona(tip_per, id_sta)VALUES('COMPRADOR', 1)
 ---------------------------------------------------------------------------
 CREATE TABLE `per_natural` (
   `id_nat` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
@@ -137,7 +138,7 @@ CREATE TABLE `banco` (
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
 ---------------------------------------------------------------------------
-CREATE TABLE `importe_venta` (
+CREATE TABLE `reporte_pago` ( --PENDIENTEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEEE
   `id_imp` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
   `id_ven` int NOT NULL,
   `id_user` int NOT NULL,
@@ -186,4 +187,18 @@ CREATE TABLE `registro_tmp` (
   `id` int PRIMARY KEY AUTO_INCREMENT NOT NULL,
   `id_user` int NOT NULL,
   `codigo` varchar(50) NOT NULL
+);
+---------------------------------------------------------------------------
+CREATE TABLE `importe_venta` (
+  `id_imp` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id_user` int NOT NULL,
+  `ciudad` varchar(100) NOT NULL,
+  `estado` varchar(2) NOT NULL,
+  `monto_usd` decimal(18,2) NOT NULL,
+  `tasa` decimal(18,2) NOT NULL,
+  `monto_bs` decimal(18,2) NOT NULL,
+  `fecha` DATE NOT NULL,
+  `id_sta` int NOT NULL,
+  FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`),
+  FOREIGN KEY (`id_user`) REFERENCES `users`(`id_user`)
 );
