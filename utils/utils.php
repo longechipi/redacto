@@ -1,7 +1,14 @@
 <?php 
-//------ VALIDACION DE POST ------//
+//------ VALIDACION DE POST con ID numerico------//
 function validar_post($id, $pagina_error) {
     if (empty($id) || !is_numeric($id)) {
+        header('Location: ' . $pagina_error);
+        exit;
+    }
+}
+//------ VALIDACION DE POST con ID Varchar------//
+function validar_post_char($id, $pagina_error) {
+    if (empty($id)) {
         header('Location: ' . $pagina_error);
         exit;
     }

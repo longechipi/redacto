@@ -127,21 +127,21 @@ if(($tip_per == 'N') || ($com_tip_per == 'N')){
                     VALUES($id_user, '$reg_veh', '$fec_cert', '$clase', '$modelo', $ano_veh, '$tipo', 
                     '$color', '$placa', '$marca', '$uso', '$serial_carro', '$serial_motor','$num_doc', 3)";
                         if ($conn->query($f) === TRUE) {
-                            $g="INSERT INTO importe_venta(id_user, ciudad, estado, monto_usd, tasa, monto_bs, fecha, id_sta)
-                                VALUES($id_user, '$ciudad', '$estado', '$divisa', '$tasa', '$total_venta', '$fecha', 3)";
+                            $g="INSERT INTO importe_venta(id_user, ciudad, estado, monto_usd, tasa, monto_bs, fecha, num_doc, id_sta)
+                                VALUES($id_user, '$ciudad', '$estado', '$divisa', '$tasa', '$total_venta', '$fecha', '$num_doc', 3)";
                                 if ($conn->query($g) === TRUE) {
-                                    echo 1;
+                                    echo json_encode(array('status' => 'success', 'message' => 'Se guardaron los datos Correctamente, Por Favor haga el pago correspondiente para poder Imprimir el Documento'));
                                 }else{
-                                    //ERROR EN G
+                                    echo json_encode(array('status' => 'error', 'message' => 'Error al Guardar el Documento: ' . $conn->error));
                                 }
                     }else{
-                        //ERROR EN F
+                        echo json_encode(array('status' => 'error', 'message' => 'Error al Guardar el Documento: ' . $conn->error));
                     }
                 } else {
-                //ERROR DE INSERCION EN E
+                    echo json_encode(array('status' => 'error', 'message' => 'Error al Guardar el Documento: ' . $conn->error));
                 }
         }else{
-            //ERROR DE INSERCION EN D
+            echo json_encode(array('status' => 'error', 'message' => 'Error al Guardar el Documento: ' . $conn->error));
         }
 }
 
