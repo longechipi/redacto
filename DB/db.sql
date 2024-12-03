@@ -202,3 +202,13 @@ CREATE TABLE `importe_venta` (
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`),
   FOREIGN KEY (`id_user`) REFERENCES `users`(`id_user`)
 );
+---------------------------------------------------------------------------
+CREATE TABLE `documentos_tmp` (
+  `id_doc` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id_user` int NOT NULL,
+  `num_doc` varchar(14) NOT NULL,
+  `fecha_ini` DATE NOT NULL,
+  `fecha_fin` DATE NOT NULL,
+  `id_sta` int NOT NULL,
+  FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
+);

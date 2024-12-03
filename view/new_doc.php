@@ -334,7 +334,7 @@ session_start();
                                 <div class="col-md-4">
                                     <div class="form-group">
                                         <label>Cédula Cónyuge</label> <span class="text-danger">(*)</span>
-                                        <input type="text" class="form-control" name="ced_conyuge" id="com_ced_conyuge" onkeypress="return numeros(this, event);" required>
+                                        <input type="text" class="form-control" name="com_ced_conyuge" id="com_ced_conyuge" onkeypress="return numeros(this, event);" required>
                                     </div>
                                 </div>
                                 </div>
@@ -463,6 +463,8 @@ session_start();
                                     <select name="clase" id="clase" class="form-control">
                                         <option value="" selected disabled>SELECCIONAR</option>
                                         <option value="V">Vehículo</option>
+                                        <option value="M">Moto</option>
+                                        <option value="C">Camioneta</option>
                                     </select>
                                 </div>
                             </div>
@@ -485,7 +487,14 @@ session_start();
                             <div class="col-md-4">
                                 <div class="form-group"> 
                                     <label>Tipo</label> <span class="text-danger">(*)</span>
-                                    <input type="text" class="form-control" name="tipo" id="tipo" required />
+                                    <select name="tipo" id="tipo" class="form-control">
+                                        <option value="" selected disabled>SELECCIONAR</option>
+                                        <option value="Trail">Trail</option>
+                                        <option value="Cross">Cross</option>
+                                        <option value="Enduro">Enduro</option>
+                                        <option value="Sedan">Sedan</option>
+                                        <option value="Coupe">Coupe</option>
+                                    </select>
                                 </div>
                             </div>
                         </div>
@@ -643,30 +652,28 @@ session_start();
                         type: 'POST',
                         data: $('#form-doc').serialize(),
                         success: function(data){
-                            console.log(data)
-                            // const res = JSON.parse(data);
-                            // if(res.status == 'error'){
-                            //     swal({
-                            //         title: 'Error al Actualizar',
-                            //         text: res.message,
-                            //         type: 'error',
-                            //         confirmButtonColor: '#1b61c2',
-                            //         confirmButtonText: 'Aceptar'
-                            //     })
-                            //     return
-                            //     document.getElementById('banco').reset();
-                            // }else{
-                            //     swal({
-                            //         title: 'Actualización Exitosa',
-                            //         text: res.message,
-                            //         type: 'success',
-                            //         confirmButtonColor: '#1b61c2',
-                            //         confirmButtonText: 'Aceptar'
-                            //     }).then(function() {
-                            //         window.location.href = 'banco';
-                            //     });
-                            //     document.getElementById('banco').reset();
-                            // }
+                            const res = JSON.parse(data);
+                            if(res.status == 'error'){
+                                swal({
+                                    title: 'Error al Registrar',
+                                    text: res.message,
+                                    type: 'error',
+                                    confirmButtonColor: '#1b61c2',
+                                    confirmButtonText: 'Aceptar'
+                                })
+                                return
+                                //document.getElementById('form-doc').reset();
+                            }else{
+                                swal({
+                                    title: 'Registro Exitoso',
+                                    text: res.message,
+                                    type: 'success',
+                                    confirmButtonColor: '#1b61c2',
+                                    confirmButtonText: 'Aceptar'
+                                }).then(function() {
+                                    window.location.href = 'documentos';
+                                });
+                            }
                         }
                     });
                 },
@@ -876,7 +883,6 @@ session_start();
                     $('#juridico').attr('hidden', true);
                 }
             })
-
             //-------- CONDICIONAL PARA COMPRADOR ----------//
              $('#com_tip_per').change(function(){
                 //----- Habilito Formulario de Comprador Natural ------//
@@ -920,7 +926,6 @@ session_start();
                     $('#com_juridico').attr('hidden', true);
                 }
             })
-
             //-------- CONDICIONAL PARA VEHICULO ----------//
              $('#clase').change(function(){
                 if($('#clase').val() == 'V'){
@@ -939,7 +944,6 @@ session_start();
             $('#fec_cert').on('blur', function() {
                 validarFecha(this);
             })
-
             //-------- CALCULO PARA DOLARES ----------//
             function calculateBolivares() {
                 var divisa = parseFloat($('#divisa').val());

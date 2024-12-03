@@ -26,27 +26,40 @@ session_start();
                 <thead>
                     <tr>
                         <th>N° Documento</th>
+                        <?php if($privilegios == 1) {
+                            echo '<th>Usuario</th>';
+                        } ?>
                         <th>Monto</th>
-                        <th>Fecha</th>
+                        <th>Fecha Registro</th>
+                        <th>Fecha Culminación</th>
                         <th>Estatus</th>
                         <th class="datatable-nosort">Acción</th>
                     </tr>
                 </thead>
                 <tbody>
                     <?php
-                    $a = "SELECT IV.id_user, IV.monto_usd, IV.fecha, IV.num_doc, IV.id_sta, E.nom_sta
+                    $a = "SELECT IV.id_user, IV.monto_usd, DT.fecha_ini, DT.fecha_fin, IV.num_doc, IV.id_sta, E.nom_sta, CONCAT(apellido, ' ', nombre) AS nom_user
                     FROM importe_venta IV
-                    INNER JOIN estatus E ON IV.id_sta = E.id_sta
-                    WHERE IV.id_user = $id_user";
+                    LEFT JOIN estatus E ON IV.id_sta = E.id_sta
+                    LEFT JOIN users U ON IV.id_user = U.id_user
+                    LEFT JOIN documentos_tmp DT ON IV.num_doc = DT.num_doc";
+                    $condicion = "";
+                    if ($privilegios == 4) {
+                        $condicion = " WHERE IV.id_user = " . $id_user;
+                    }
                     $ares= $conn->query($a);
                     while($row = $ares->fetch_assoc()){ ?>
                         <tr>
                             <td><?php echo $row['num_doc']; ?></td>
+                            <?php if($privilegios == 1) {
+                                echo '<td>' . $row['nom_user'] . '</td>';
+                            } ?>
                             <td><?php echo $row['monto_usd'] . ' ' .'$'; ?></td>
-                            <td><?php echo $row['fecha']; ?></td>
+                            <td><?php echo $row['fecha_ini']; ?></td>
+                            <td><?php echo $row['fecha_fin']; ?></td>
                             <td><?php echo $row['nom_sta']; ?></td>
                             <td>
-                            <?php if($row['id_sta'] == 3){?> 
+                            <?php if($privilegios != 1){?> 
                                 <a class="btn btn-primary pago" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-credit-card"></i> Pagar</a>
                             <?php }else{?>
                                 <a class="btn btn-primary ver" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-eye"></i> Ver</a>
@@ -78,8 +91,14 @@ $(document).ready(function(){
 
     $(document).on('click', '.pago', function() {
         var id_doc = $(this).data('id-doc');
-     
-        
+        var form = $('<form method="POST" action="pago_doc"></form>');
+        form.append('<input type="hidden" name="id_form" value="' + id_doc + '">');
+        $('body').append(form);
+        form.submit();
+    });
+
+    $(document).on('click', '.ver', function() {
+        var id_doc = $(this).data('id-doc');
         var form = $('<form method="POST" action="pago_doc"></form>');
         form.append('<input type="hidden" name="id_form" value="' + id_doc + '">');
         $('body').append(form);
