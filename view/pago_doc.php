@@ -177,21 +177,21 @@ validar_post_char($id_form, 'inicio');
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Nombre Cónyuge</label> <span class="text-danger">(*)</span>
-                                                        <input type="text" class="form-control" name="nom_conyuge" id="nom_conyuge" onkeypress="return letras(this, event);" required>
+                                                        <input type="text" class="form-control" name="nom_conyuge" id="nom_conyuge" onkeypress="return letras(this, event);" >
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Apellido Cónyuge</label> <span class="text-danger">(*)</span>
-                                                        <input type="text" class="form-control" name="ape_conyuge" id="ape_conyuge" onkeypress="return letras(this, event);" required>
+                                                        <input type="text" class="form-control" name="ape_conyuge" id="ape_conyuge" onkeypress="return letras(this, event);" >
                                                     </div>
                                                 </div>
 
                                                 <div class="col-md-4">
                                                     <div class="form-group">
                                                         <label>Cédula Cónyuge</label> <span class="text-danger">(*)</span>
-                                                        <input type="text" class="form-control" name="ced_conyuge" id="ced_conyuge" onkeypress="return numeros(this, event);" required>
+                                                        <input type="text" class="form-control" name="ced_conyuge" id="ced_conyuge" onkeypress="return numeros(this, event);" >
                                                     </div>
                                                 </div>
                                                 </div>
