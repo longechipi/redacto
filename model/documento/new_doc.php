@@ -3,6 +3,7 @@ require_once('../../conf/conex.php');
 require_once('../../utils/utils.php');
 //Variables Globales//
 $id_user = $_POST['id_user'];
+error_reporting(0);
 
 //------------- CAMPOS DEL PRIMER STEP ------------//
 //--------- CAMPOS DE NATURAL ---------//
@@ -107,7 +108,7 @@ $c="SELECT est, cod, anio FROM correlativo WHERE est = '$estado'";
 $cres= $conn->query($c);
 $row = $cres->fetch_assoc();
 $num_doc = $row['est'].'-'.$row['cod'].'-'.$row['anio'];
-
+try {
 $conn->begin_transaction();
 
 //------------- INSERT EN LA TABLA PER_NATURAL CAMBIANDO EL ID DE TIP_PER -----------//
@@ -182,7 +183,11 @@ $conn->begin_transaction();
         echo resjson(true, null, null, 'Se guardaron los datos Correctamente, Por Favor haga el pago correspondiente para poder Imprimir el Documento');
     } else {
         $conn->rollback();
-        echo resjson(false, null, 'Error al guardar los datos');
+        echo resjson(false, null, 'Error al guardar los datos' . $conn->error);
     }
-$conn->close();
+} catch (mysqli_sql_exception $e) {
+    echo resjson(false, null, 'Error en la Base de Datos para Guardar el Documento');
+} finally {
+    $conn->close();
+}
 ?>

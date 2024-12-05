@@ -47,6 +47,7 @@ session_start();
                     if ($privilegios == 4) {
                         $condicion = " WHERE IV.id_user = " . $id_user;
                     }
+                    $a .= $condicion;
                     $ares= $conn->query($a);
                     while($row = $ares->fetch_assoc()){ ?>
                         <tr>
@@ -60,8 +61,9 @@ session_start();
                             <td><?php echo $row['nom_sta']; ?></td>
                             <td>
                             <?php if($privilegios != 1){?> 
-                                <a class="btn btn-primary pago" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-credit-card"></i> Pagar</a>
-                            <?php }else{?>
+                                <a class="btn btn-primary btn-sm pago" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-credit-card"></i> Pagar</a>
+                                <a class="btn btn-danger btn-sm eliminar" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-trash"></i> Eliminar</a>
+                                <?php }else{?>
                                 <a class="btn btn-primary ver" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-eye"></i> Ver</a>
                             <?php } 
                             ?>
@@ -103,6 +105,43 @@ $(document).ready(function(){
         form.append('<input type="hidden" name="id_form" value="' + id_doc + '">');
         $('body').append(form);
         form.submit();
+    });
+
+
+    $(document).on('click', '.eliminar', function() {
+        var id_doc = $(this).data('id-doc');
+        swal({
+            title: '¿Quieres eliminar el Documento \n '+id_doc+'',
+            text: "Esta acción es irreversible y eliminará todos los datos ingresados",
+            type: 'warning',
+            showCancelButton: true,
+            confirmButtonColor: '#3085d6',
+            cancelButtonColor: '#d33',
+            confirmButtonText: 'Sí, Eliminar',
+            cancelButtonText: 'No, Cancelar!'
+        }).then((result) => {
+
+            console.log(id_doc);
+                $.ajax({
+                    url: '../model/documento/delete_doc.php',
+                    type: 'POST',
+                    data: { id_doc: id_doc },
+                    success: function(response) {
+                        swal(
+                            'Eliminado',
+                            'El documento se elimino junto con sus datos',
+                            'success'
+                        );
+                    },
+                    error: function(xhr, status, error) {
+                        swal(
+                            'Error',
+                            'No se pudo eliminar el documento',
+                            'error'
+                        );
+                    }
+                });
+        });
     });
 });
 </script>
