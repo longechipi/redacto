@@ -183,7 +183,7 @@ $conn->begin_transaction();
         echo resjson(true, null, null, 'Se guardaron los datos Correctamente, Por Favor haga el pago correspondiente para poder Imprimir el Documento');
     } else {
         $conn->rollback();
-        echo resjson(false, null, 'Error al guardar los datos' . $conn->error);
+        echo resjson(false, null, 'Error al guardar los datos');
     }
 } catch (mysqli_sql_exception $e) {
     echo resjson(false, null, 'Error en la Base de Datos para Guardar el Documento');

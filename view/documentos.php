@@ -120,18 +120,33 @@ $(document).ready(function(){
             confirmButtonText: 'Sí, Eliminar',
             cancelButtonText: 'No, Cancelar!'
         }).then((result) => {
-
-            console.log(id_doc);
                 $.ajax({
                     url: '../model/documento/delete_doc.php',
                     type: 'POST',
                     data: { id_doc: id_doc },
                     success: function(response) {
-                        swal(
-                            'Eliminado',
-                            'El documento se elimino junto con sus datos',
-                            'success'
-                        );
+                        const res = JSON.parse(response);
+                        if(res.success == false){
+                            swal({
+                                title: 'Error al Eliminar',
+                                text: res.error.message,
+                                type: 'error',
+                                confirmButtonColor: '#1b61c2',
+                                confirmButtonText: 'Aceptar'
+                            })
+                            return
+                        }
+                        if(res.success == true){
+                            swal({
+                                title: 'Eliminado',
+                                text: res.message,
+                                type: 'success',
+                                confirmButtonColor: '#1b61c2',
+                                confirmButtonText: 'Aceptar'
+                            }).then(function() {
+                                window.location.href = 'documentos';
+                            });
+                        }
                     },
                     error: function(xhr, status, error) {
                         swal(

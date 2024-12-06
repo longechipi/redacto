@@ -71,7 +71,6 @@ session_start();
                             data: $('#form-doc').serialize(),
                             success: function(data){
                                 const res = JSON.parse(data);
-                                console.log(res)
                                 if(res.success == false){
                                     swal({
                                         title: 'Error al Registrar',
