@@ -294,7 +294,7 @@ session_start();
             })
             //-------- CONDICIONAL PARA VEHICULO ----------//
             $('#clase').change(function(){
-                if($('#clase').val() == 'V'){
+                if($('#clase').val() == 'VEHICULO'){
                     $('#ano_veh').on('blur', function() {
                         if($('#ano_veh').val() <= 2000){
                            $('#ser_motor_menor').removeAttr('hidden');

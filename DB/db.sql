@@ -212,3 +212,42 @@ CREATE TABLE `documentos_tmp` (
   `id_sta` int NOT NULL,
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
+---------------------------------------------------------------------------
+CREATE TABLE `estados` (
+  `id` int PRIMARY KEY NOT NULL,
+  `valor` varchar(2) NOT NULL,
+  `estado` varchar(50) NOT NULL
+);
+
+INSERT INTO `estados` (`id`, `estado`, `valor`) VALUES
+(1, 'AMAZONAS', 'AM'),
+(2, 'ANZOÁTEGUI', 'AN'),
+(3, 'APURE', 'AP'),
+(4, 'ARAGUA', 'AR'),
+(5, 'BARINAS', 'BA'),
+(6, 'BOLÍVAR', 'BO'),
+(7, 'CARABOBO', 'CA'),
+(8, 'COJEDES', 'CO'),
+(9, 'DELTA AMACURO', 'DA'),
+(10, 'FALCÓN', 'FA'),
+(11, 'GUÁRICO', 'GU'),
+(12, 'LARA', 'LA'),
+(13, 'MÉRIDA', 'ME'),
+(14, 'MIRANDA', 'MI'),
+(15, 'MONAGAS', 'MO'),
+(16, 'NUEVA ESPARTA', 'NE'),
+(17, 'PORTUGUESA', 'PO'),
+(18, 'SUCRE', 'SU'),
+(19, 'TÁCHIRA', 'TA'),
+(20, 'TRUJILLO', 'TR'),
+(21, 'LA GUAIRA', 'LG'),
+(22, 'YARACUY', 'YA'),
+(23, 'ZULIA', 'ZU'),
+(24, 'DISTRITO CAPITAL', 'DC')
+---------------------------------------------------------------------------
+CREATE TABLE `monto_doc` (
+  `id` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `monto` int NOT NULL,
+  `id_sta` int NOT NULL,
+  FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
+);

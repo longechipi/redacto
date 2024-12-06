@@ -17,31 +17,13 @@
             <div class="form-group"> 
                 <label>Estado</label> <span class="text-danger">(*)</span>
                 <select name="estado" id="estado" class="form-control" required>
-                    <option value="" selected disabled>SELECCIONAR</option>
-                    <option value="AM">AMAZONAS</option>
-                    <option value="AN">ANZOÁTEGUI</option>
-                    <option value="AP">APURE</option>
-                    <option value="AR">ARAGUA</option>
-                    <option value="BA">BARINAS</option>
-                    <option value="BO">BOLÍVAR</option>
-                    <option value="CA">CARABOBO</option>
-                    <option value="CO">COJEDES</option>
-                    <option value="DA">DELTA AMACURO</option>
-                    <option value="DC">DISTRITO CAPITAL</option>
-                    <option value="FA">FALCÓN</option>
-                    <option value="GU">GUÁRICO</option>
-                    <option value="LA">LARA</option>
-                    <option value="ME">MÉRIDA</option>
-                    <option value="MI">MIRANDA</option>
-                    <option value="MO">MONAGAS</option>
-                    <option value="NE">NUEVA ESPARTA</option>
-                    <option value="PO">PORTUGUESA</option>
-                    <option value="SU">SUCRE</option>
-                    <option value="TA">TÁCHIRA</option>
-                    <option value="TR">TRUJILLO</option>
-                    <option value="LG">LA GUAIRA</option>
-                    <option value="YA">YARACUY</option>
-                    <option value="ZU">ZULIA</option>
+                    <?php 
+                    $a="SELECT valor, estado FROM estados ORDER BY estado ASC";
+                    $ares= $conn->query($a);
+                    while($row = $ares->fetch_assoc()){
+                        echo "<option value='".$row['valor']."'>".utf8_encode($row['estado'])."</option>";
+                    }
+                    ?>
                 </select>
             </div>
 
@@ -78,7 +60,7 @@
         <div class="col-md-12">
             <div class="custom-control custom-checkbox mb-5">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <label class="custom-control-label" for="customCheck1"><a href="#" class="btn btn-primary" data-toggle="modal" data-target="#terminos">Terminos y Condiciones </a> </label>
+                <a href="#" class="text-primary" data-toggle="modal" data-target="#terminos">Sí, Acepto los Terminos y Condiciones</a>
             </div>
         </div>
     </div>

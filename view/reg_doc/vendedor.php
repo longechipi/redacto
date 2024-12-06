@@ -107,7 +107,7 @@
         </div>
     </div>
     <!-- Formulario para Personas Juridicas -->
-        <div class="row" id="juridico" hidden>
+    <div class="row" id="juridico" hidden>
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-6">
@@ -171,10 +171,9 @@
                 </div>
             </div>
         </div>
-        </div>
-
+    </div>
         <!-- Formulario para SUCESION -->
-        <div class="row" id="sucesion" hidden>
+    <div class="row" id="sucesion" hidden>
         <div class="col-md-12">
             <div class="row">
                 <div class="col-md-5">
@@ -199,5 +198,5 @@
                 </div>
             </div>
         </div>
-        </div>
+    </div>
 </section>

@@ -2,6 +2,7 @@
 require_once('../../conf/conex.php');
 require_once('../../utils/utils.php');
 $id_doc = $_POST['id_doc'];
+error_reporting(0);
 
 try {
     $conn->begin_transaction();

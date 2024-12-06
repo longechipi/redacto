@@ -22,7 +22,7 @@ $xrow = $xres->fetch_assoc();
 				<ul class="submenu">
 					<li><a href="new_doc">Nuevo Documento</a></li>
 					<li><a href="documentos">Documentos Guardados</a></li>
-					<li><a href="privilegios">Pagados</a></li>
+					<li><a href="privilegios">Documentos Pagados</a></li>
 					<!-- <li><a href="form-wizard.html">Form Wizard</a></li>
 					<li><a href="html5-editor.html">HTML5 Editor</a></li>
 					<li><a href="form-pickers.html">Form Pickers</a></li>
@@ -60,6 +60,8 @@ $xrow = $xres->fetch_assoc();
 						<li><a href="forma_pago">Forma de Pago</a></li>
 						<li><a href="#">Correlativos</a></li>
 						<li><a href="tasa">Tasa BCV</a></li>
+						<li><a href="estados">Estados</a></li>
+						<li><a href="monto_doc">Monto Documento</a></li>
 					</ul>
 				</li>
 			<?php } ?>

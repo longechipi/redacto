@@ -75,7 +75,7 @@ $placa = strtoupper(trim($_POST['placa']));
 $marca = strtoupper(trim($_POST['marca']));
 $uso = strtoupper(trim($_POST['uso']));
 $serial_carro = strtoupper(trim($_POST['serial_carro']));
-
+$otro_uso = empty($_POST['otro_uso']) ? NULL : strtoupper(trim($_POST['otro_uso']));
 $serial_motor = empty($_POST['serial_motor']) ? trim($_POST['ser_motor']) : trim($_POST['serial_motor']);
 // //------------- FIN DE CAMPOS DEL TERCER STEP ------------//
 // ////////////////////////////////////////////////////////////
@@ -87,7 +87,7 @@ $ciudad = $_POST['ciudad'];
 $estado = $_POST['estado'];
 $fecha =date('Y-m-d');
 //------------- FIN DE CAMPOS DEL CUARTO STEP ------------//
-//--------- REGISTRO DE DOCUMENTO ---------//
+//--------- REGISTRO DE CORRELATIVO ---------//
 $a="SELECT est, cod, anio FROM correlativo WHERE est = '$estado'";
 $ares= $conn->query($a);
     if($ares->num_rows > 0){
@@ -113,55 +113,55 @@ $conn->begin_transaction();
 
 //------------- INSERT EN LA TABLA PER_NATURAL CAMBIANDO EL ID DE TIP_PER -----------//
     if($tip_per == 'N'){
-        $d1="INSERT INTO per_natural(id_user, tip_per, nombre1, nombre2, apellido1, apellido2, nac, 
+        $d1="INSERT INTO per_natural(id_user, tip_per, tip_desc, tip_tipo, nombre1, nombre2, apellido1, apellido2, nac, 
         cedula, civil, nom_conyuge, apel_conyuge, cedula_conyuge, num_doc, id_sta)
-        VALUES($id_user, 2, '$nombre1', '$nombre2', '$apellido1', '$apellido2', '$nac', 
+        VALUES($id_user, 2, 'V', 'N', '$nombre1', '$nombre2', '$apellido1', '$apellido2', '$nac', 
         '$cedula', '$edo_civil', '$nom_conyuge', '$ape_conyuge', '$ced_conyuge', '$num_doc', 3)";
             $d1res= $conn->query($d1);
     }
 
     if($com_tip_per == 'N'){
-        $e2="INSERT INTO per_natural(id_user, tip_per, nombre1, nombre2, apellido1, apellido2, nac, 
+        $e2="INSERT INTO per_natural(id_user, tip_per, tip_desc, tip_tipo, nombre1, nombre2, apellido1, apellido2, nac, 
         cedula, civil, nom_conyuge, apel_conyuge, cedula_conyuge, num_doc, id_sta)
-        VALUES($id_user, 1, '$com_nombre1', '$com_nombre2', '$com_apellido1', '$com_apellido2', '$com_nac', 
+        VALUES($id_user, 1, 'C', 'N', '$com_nombre1', '$com_nombre2', '$com_apellido1', '$com_apellido2', '$com_nac', 
         '$com_cedula', '$com_edo_civil', '$com_nom_conyuge', '$com_ape_conyuge', '$com_ced_conyuge', '$num_doc', 3)";
             $e2res= $conn->query($e2);
     }
     /////////////////////////////////////////////////////////////////////////////////////////
     //------------- INSERT EN LA TABLA PER_JURIDICO CAMBIANDO EL ID DE TIP_PER -----------//
     if($tip_per == 'J'){
-        $d3="INSERT INTO per_juridico(id_user, tip_per, nom_empresa, rif, fec_registro, nom_registro, 
+        $d3="INSERT INTO per_juridico(id_user, tip_per, tip_desc, tip_tipo, nom_empresa, rif, fec_registro, nom_registro, 
         tomo, nro, protocolo, expediente, num_doc, id_sta)
-        VALUES($id_user, 2, '$nom_emp', '$rif', '$fec_reg', '$nom_reg', 
+        VALUES($id_user, 2, 'V', 'J', '$nom_emp', '$rif', '$fec_reg', '$nom_reg', 
         '$tomo', '$nro', '$protocolo', '$exp', '$num_doc', 3)";
         $d3res= $conn->query($d3);
     }
 
     if($com_tip_per == 'J'){
-        $e4="INSERT INTO per_juridico(id_user, tip_per, nom_empresa, rif, fec_registro, nom_registro, 
+        $e4="INSERT INTO per_juridico(id_user, tip_per, tip_desc, tip_tipo, nom_empresa, rif, fec_registro, nom_registro, 
         tomo, nro, protocolo, expediente, num_doc, id_sta)
-        VALUES($id_user, 1, '$com_nom_emp', '$com_rif', '$com_fec_reg', '$com_nom_reg', 
+        VALUES($id_user, 1, 'C', 'J', '$com_nom_emp', '$com_rif', '$com_fec_reg', '$com_nom_reg', 
         '$com_tomo', '$com_nro', '$com_protocolo', '$com_exp', '$num_doc', 3)";
         $e4res= $conn->query($e4);
     }
     /////////////////////////////////////////////////////////////////////////////////////////
     //------------- INSERT EN LA TABLA PER_SUCESION CAMBIANDO EL ID DE TIP_PER -----------//
     if($tip_per == 'S'){
-        $d5="INSERT INTO per_sucesion(id_user, tip_per, nom_sucesion, rif, certi_solv, num_doc, id_sta)
-        VALUES($id_user, 2, '$nom_suc', '$rif_su', '$cer_sol', '$num_doc', 3)";
+        $d5="INSERT INTO per_sucesion(id_user, tip_per, tip_desc, tip_tipo, nom_sucesion, rif, certi_solv, num_doc, id_sta)
+        VALUES($id_user, 2, 'V', 'S', '$nom_suc', '$rif_su', '$cer_sol', '$num_doc', 3)";
         $d5res= $conn->query($d5);
     }
     
     if($com_tip_per == 'S'){
-        $e6="INSERT INTO per_sucesion(id_user, tip_per, nom_sucesion, rif, certi_solv, num_doc, id_sta)
-        VALUES($id_user, 1, '$com_nom_suc', '$com_rif_su', '$com_cer_sol', '$num_doc', 3)";
+        $e6="INSERT INTO per_sucesion(id_user, tip_per, tip_desc, nom_sucesion, rif, certi_solv, num_doc, id_sta)
+        VALUES($id_user, 1, 'C', 'S', '$com_nom_suc', '$com_rif_su', '$com_cer_sol', '$num_doc', 3)";
            $e6res= $conn->query($e6);
     }
     //------------- INSERT EN LA TABLA vehiculo_venta -----------//
     $f6="INSERT INTO vehiculo_venta(id_user, reg_vehiculo, fec_certi, clase, modelo, anio, tipo, 
-    color, placa, marca, uso, serial_carro, serial_motor, num_doc, id_sta)
+    color, placa, marca, uso, otro_uso, serial_carro, serial_motor, num_doc, id_sta)
     VALUES($id_user, '$reg_veh', '$fec_cert', '$clase', '$modelo', $ano_veh, '$tipo', 
-    '$color', '$placa', '$marca', '$uso', '$serial_carro', '$serial_motor','$num_doc', 3)";
+    '$color', '$placa', '$marca', '$uso', '$otro_uso', '$serial_carro', '$serial_motor','$num_doc', 3)";
     $f6res= $conn->query($f6);
 
     //------------- INSERT EN LA TABLA vehiculo_venta -----------//

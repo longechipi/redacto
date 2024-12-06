@@ -45,7 +45,7 @@ session_start();
                     LEFT JOIN documentos_tmp DT ON IV.num_doc = DT.num_doc";
                     $condicion = "";
                     if ($privilegios == 4) {
-                        $condicion = " WHERE IV.id_user = " . $id_user;
+                        $condicion = " WHERE IV.id_user = " . $id_user ." ORDER BY fecha_ini DESC";
                     }
                     $a .= $condicion;
                     $ares= $conn->query($a);
@@ -84,6 +84,7 @@ $(document).ready(function(){
             targets: "datatable-nosort",
             orderable: false,
         }],
+        order: [[0, 'desc']],
 
         "lengthMenu": [[10, 25, 50, -1], [10, 25, 50, "All"]],
         "language": {
