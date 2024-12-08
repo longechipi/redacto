@@ -196,9 +196,6 @@ $(document).ready(function(){
         validarFecha(this);
     })
 
-
-
-
     //----- FORM PARA EL VENDEDOR NATURAL-----//
     $('#ven').submit(function(e){
         e.preventDefault();
@@ -349,7 +346,53 @@ $(document).ready(function(){
             }
         });
     });
+    $('#imp_venta').submit(function(e){
+        e.preventDefault();
+        $.ajax({
+            url: '../model/documento/importe_venta.php',
+            type: 'POST',
+            data: $('#imp_venta').serialize(),
+            success: function(data){
+                const res = JSON.parse(data);
+                if(res.status == 'error'){
+                    swal({
+                        title: 'Error al Actualizar',
+                        text: res.message,
+                        type: 'error',
+                        confirmButtonColor: '#1b61c2',
+                        confirmButtonText: 'Aceptar'
+                    })
+                    return
+                }else{
+                    swal({
+                        title: 'Actualización Exitosa',
+                        text: res.message,
+                        type: 'success',
+                        confirmButtonColor: '#1b61c2',
+                        confirmButtonText: 'Aceptar'
+                    })
+                }
+            }
+        });
+    })
+
+    //-------- CALCULO PARA DOLARES ----------//
+    function calculateBolivares() {
+        var divisa = parseFloat($('#divisa').val());
+        var tasa = parseFloat($('#tasa').val());
+            if (!isNaN(divisa) && !isNaN(tasa)) {
+                var bs = divisa * tasa;
+                $('#bs').val(bs.toFixed(2));
+            }else {
+                $('#bs').val('');
+            }
+    }
+    $('#divisa, #tasa').on('input', calculateBolivares);
+    calculateBolivares();
 });
+    $('.montos').mask('000000000.00', {
+        reverse: true
+    });
 </script>
 
 </body>

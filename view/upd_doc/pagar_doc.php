@@ -34,11 +34,10 @@
         </div>
 
         <div class="col-md-12">
-        <div class="text-center">
-            <button type="submit" class="btn btn-primary"><i class="icon-copy dw dw-floppy-disk"></i>&nbsp;REPORTAR PAGO</button>
-            <a href="javascript:history.back()" class="btn btn-outline-primary" rel="noopener noreferrer"><i class="icon-copy dw dw-curved-arrow1"></i>&nbsp;VOLVER </a>
-        </div>
-    </div>
-
+            <div class="text-center">
+                <button type="submit" class="btn btn-primary"><i class="icon-copy dw dw-floppy-disk"></i>&nbsp;REPORTAR PAGO</button>
+                <a href="javascript:history.back()" class="btn btn-outline-primary" rel="noopener noreferrer"><i class="icon-copy dw dw-curved-arrow1"></i>&nbsp;VOLVER </a>
+            </div>
+        </div>  
     </div>
 </form>

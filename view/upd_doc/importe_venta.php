@@ -1,4 +1,7 @@
 <form id="imp_venta">
+    <input type="text" name="id_user" id="id_user" value="<?php echo $id_user; ?>" hidden />
+    <input type="text" name="num_doc" id="num_doc" value="<?php echo $id_doc; ?>" hidden />
+    <input type="text" name="id_imp" id="id_imp" value="<?php echo $row['id_imp']; ?>" hidden/>
     <div class="text-center mt-4">
     <hr>
         <h5 class="mb-3">DATOS DE LA VENTA</h5>
@@ -29,15 +32,11 @@
         <div class="col-md-6">
             <small>Monto USD</small>
             <div class="input-group custom">
-                <input type="text" class="form-control form-control-lg monto" name="divisa" id="divisa" value="<?php echo $row['monto_usd']?>" placeholder="Ingrese el Monto en Divisa" required/>
+                <input type="text" class="form-control form-control-lg montos" name="divisa" id="divisa" value="<?php echo $row['monto_usd']?>" placeholder="Ingrese el Monto en Divisa" required/>
                 <div class="input-group-append custom">
                     <span class="input-group-text"><i class="icon-copy ti-money"></i></span>
                 </div>
-                <script>
-                    $('.monto').mask('000000000.00', {
-                        reverse: true
-                    });
-                </script>
+                
             </div>
             <small>Tasa BCV</small>
             <div class="input-group custom">
