@@ -1,7 +1,3 @@
-<header>
-    <link rel="stylesheet" type="text/css" href="../../src/plugins/sweetalert2/sweetalert2.css">
-    <script src="../src/plugins/sweetalert2/sweetalert2.all.js"></script>
-</header>
 <?php 
 require_once('conex.php');
 include('../utils/utils.php');
@@ -20,25 +16,12 @@ if($_SERVER['REQUEST_METHOD'] == 'POST'){
             $hash = password_hash($clave_tmp, PASSWORD_DEFAULT);
             $b="UPDATE users SET clave = '$hash' WHERE usuario='$user'";
             $bres= $conn->query($b);
-            include_once('../mail/reset-pass.php');
+            include('../mail/reset-pass.php');
+            echo json_encode(array('status' => 'success', 'message' => 'Se envio un Correo con la nueva Credencial temporal, recuerde cambiarla para mantener su seguridad'));
         }else{
-            echo '<script>
-            swal({
-                type: "error",
-                title: "Error",
-                text: "¡El Usuario Ingresado no existe en nuestra Plataforma!",
-                showConfirmButton: true,
-                confirmButtonText: "Cerrar"
-                }).then(function(result){
-                    if(result.value){                   
-                    window.location = "../index.html";
-                    }
-                });
-            </script>';
+            echo json_encode(array('status' => 'error', 'message' => '¡El Usuario Ingresado no existe en nuestra Plataforma!'));
+            
         }
-
-
-
 
 }
 

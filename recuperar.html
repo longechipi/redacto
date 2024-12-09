@@ -20,7 +20,9 @@
 	<link rel="stylesheet" type="text/css" href="vendors/styles/core.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/icon-font.min.css">
 	<link rel="stylesheet" type="text/css" href="vendors/styles/style.css">
-
+	<script src="https://code.jquery.com/jquery-3.7.1.js" integrity="sha256-eKhayi8LEQwp4NKxN+CfCh+3qOVUtJn3QNZ0TciWLP4=" crossorigin="anonymous"></script>
+	<link rel="stylesheet" type="text/css" href="src/plugins/sweetalert2/sweetalert2.css">
+    <script src="src/plugins/sweetalert2/sweetalert2.all.js"></script>
 </head>
 
 <body>
@@ -37,7 +39,7 @@
 							<h2 class="text-center text-primary">Reinicio de Contraseña</h2>
 						</div>
 						<h6 class="mb-20">Por favor Ingrese su Usuario </h6>
-						<form id="enviar" method="POST" action="conf/reset-pass.php">
+						<form id="enviar">
 							<div class="input-group custom">
 								<input type="email" name="usuario" class="form-control form-control-lg" placeholder="Usuario" required />
 								<div class="input-group-append custom">
@@ -46,8 +48,14 @@
 							</div>
 							<div class="row align-items-center">
 								<div class="col-5">
-									<div class="input-group mb-0">
-										<button class="btn btn-primary btn-lg btn-block" type="submit" value="Submit">Restablecer</button>
+									<div class="input-group mb-0" id="boton">
+										<button class="btn btn-primary btn-lg btn-block" type="submit" id="enviador" value="Submit">Restablecer</button>
+									</div>
+									<div id="loading" hidden>
+										<div class="spinner-border text-success" style="width: 3rem; height: 3rem;" role="status" >
+											<span class="sr-only">Loading...</span> 
+										</div>
+										<p>Recuperando...</p>
 									</div>
 								</div>
 								<div class="col-2">
@@ -66,6 +74,52 @@
 		</div>
 	</div>
 	<!-- js -->
+	<script>
+		$(document).ready(function(){
+			$('#enviar').submit(function(e){
+				e.preventDefault();
+				$.ajax({
+					url: 'conf/reset-pass.php',
+					type: 'POST',
+					data: $('#enviar').serialize(),
+					beforeSend: function() {
+					$('#loading').removeAttr('hidden');
+					$('#boton').attr('hidden', true);
+					$("#enviador").prop("disabled", true);
+					},
+					success: function(data){
+						console.log(data);
+						const res = JSON.parse(data);
+						if(res.status == 'error'){
+							swal({
+								title: 'Error',
+								text: res.message,
+								type: 'error',
+								confirmButtonColor: '#1b61c2',
+								confirmButtonText: 'Aceptar'
+							}).then((result) => {
+								if(result.value){
+									window.location = "index.html";
+								}
+							})
+						}else{
+							swal({
+								title: 'Exito',
+								text: res.message,
+								type: 'success',
+								confirmButtonColor: '#1b61c2',
+								confirmButtonText: 'Aceptar'
+							}).then((result) => {
+								if(result.value){
+									window.location = "index.html";
+								}
+							})
+						}
+					}
+				});
+			});
+		});
+	 </script>
 	<script src="vendors/scripts/core.js"></script>
 	<script src="vendors/scripts/script.min.js"></script>
 	<script src="vendors/scripts/process.js"></script>

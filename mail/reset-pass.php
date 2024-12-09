@@ -163,215 +163,103 @@ try {
 
 </head>
 <body id=body class=t59 style="min-width:100%;Margin:0px;padding:0px;background-color:#FAFAFA;">
-	<div class=t58 style="background-color:#FAFAFA;">
+<div class=t58 style="background-color:#FAFAFA;">
 <table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center>
+<tr>
+<td class=t57 style="font-size:0;line-height:0;background-color:#FAFAFA;" valign=top align=center>
+<table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center id=innerTable>
+<tr>
+<td align=center>
+<table class=t54 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+<tr>
+<td class=t53 style="background-color:#fff;width:510px;padding:40px 60px 22px 60px;">
+<table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;">
+<tr>
+<td align=center>
+<table class=t2 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
     <tr>
-        <td class=t57 style="font-size:0;line-height:0;background-color:#FAFAFA;" valign=top align=center>
-            <table role=presentation width=100% cellpadding=0 cellspacing=0 border=0 align=center id=innerTable>
+
+        <td>
+
+            <div style="font-size:0px;"><img class=t0 style="width:40%;margin-left: 30%;" alt="" src="https://app.wgdigital.com.ve/src/images/logo.jpg" /></div>
+        </td>
+    </tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<div class=t3 style="line-height:40px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td align=center>
+<table class=t6 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+    <tr>
+
+        <td class=t5 style="width:auto;">
+
+            <h1 class=t4 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:700;font-style:normal;font-size:29px;text-decoration:none;text-transform:none;direction:ltr;color:#222A55;text-align:left;">TRAMITANDO</h1></td>
+    </tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<div class=t7 style="line-height:27px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td align=center>
+<table class=t10 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+    <tr>
+
+        <td class=t9 style="padding:0 0 1px 0;">
+
+            <p class=t8 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:18px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;">Hemos detectado que ha olvidado su credencial. Por favor, utilice la clave temporal que le hemos proporcionado para acceder a su cuenta. Recuerde actualizarla lo antes posible para garantizar la seguridad de su cuenta.</p>
+        </td>
+    </tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<div class=t11 style="line-height:22px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td align=center>
+<table class=t20 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+    <tr>
+        <td class=t19 style="border:1px solid #2ec05a;padding:14px 30px 16px 30px;border-radius:6px 6px 6px 6px;">
+
+            <table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;">
                 <tr>
                     <td align=center>
-                        <table class=t54 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+                        <table class=t14 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
                             <tr>
-                                <td class=t53 style="background-color:#fff;width:510px;padding:40px 60px 22px 60px;">
-                                    <table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;">
-                                        <tr>
-                                            <td align=center>
-                                                <table class=t2 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                    <tr>
 
-                                                        <td>
+                                <td class=t13 style="width:auto;">
 
-                                                            <div style="font-size:0px;"><img class=t0 style="width:40%;margin-left: 30%;" alt="" src="https://app.wgdigital.com.ve/src/images/logo.jpg" /></div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class=t3 style="line-height:40px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center>
-                                                <table class=t6 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                    <tr>
-
-                                                        <td class=t5 style="width:auto;">
-
-                                                            <h1 class=t4 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:34px;font-weight:700;font-style:normal;font-size:29px;text-decoration:none;text-transform:none;direction:ltr;color:#222A55;text-align:left;">TRAMITANDO</h1></td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class=t7 style="line-height:27px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center>
-                                                <table class=t10 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                    <tr>
-
-                                                        <td class=t9 style="padding:0 0 1px 0;">
-
-                                                            <p class=t8 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:18px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;">Hemos detectado que ha olvidado su credencial. Por favor, utilice la clave temporal que le hemos proporcionado para acceder a su cuenta. Recuerde actualizarla lo antes posible para garantizar la seguridad de su cuenta.</p>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class=t11 style="line-height:22px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center>
-                                                <table class=t20 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                    <tr>
-                                                        <td class=t19 style="border:1px solid #2ec05a;padding:14px 30px 16px 30px;border-radius:6px 6px 6px 6px;">
-
-                                                            <table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;">
-                                                                <tr>
-                                                                    <td align=center>
-                                                                        <table class=t14 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                                            <tr>
-
-                                                                                <td class=t13 style="width:auto;">
-
-                                                                                    <p class=t12 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:bold;font-style:normal;font-size:18px;text-decoration:none;text-transform:none;direction:ltr;color:#222A55;text-align:left;">CLAVE TEMPORAL</p>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td>
-                                                                        <div class=t15 style="line-height:14px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
-                                                                    </td>
-                                                                </tr>
-                                                                <tr>
-                                                                    <td align=center>
-                                                                        <table class=t18 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                                            <tr>
-
-                                                                                <td class=t17 style="width:448px;">
-
-                                                                                    <p class=t16 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:30px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;">'.$clave_tmp.'</p>
-                                                                                </td>
-                                                                            </tr>
-                                                                        </table>
-                                                                    </td>
-                                                                </tr>
-                                                            </table>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class=t43 style="line-height:5px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center>
-                                                <table class=t45 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                    <tr>
-
-                                                        <td class=t44 style="width:510px;padding:19px 0 25px 0;">
-
-                                                            <div class=t42 style="width:100%;text-align:left;">
-                                                                <div class=t41 style="display:inline-block;">
-                                                                    <table class=t40 role=presentation cellpadding=0 cellspacing=0 align=left valign=middle>
-                                                                        <tr class=t39>
-                                                                            <td></td>
-                                                                            <td class=t27 width=175.07477 valign=middle>
-                                                                                <table role=presentation width=100% cellpadding=0 cellspacing=0 class=t25 style="width:100%;">
-                                                                                    <tr>
-                                                                                        <td class=t22 style="width:22px;" width=22></td>
-                                                                                        <td class=t23 style="background-color:transparent;">
-                                                                                            <div style="font-size:0px;"><img class=t21 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=131.07476635514018 height=102.1875 alt="" src="https://app.wgdigital.com.ve/src/images/logo.jpg" /></div>
-                                                                                        </td>
-                                                                                        <td class=t24 style="width:22px;" width=22></td>
-                                                                                    </tr>
-                                                                                </table>
-
-                                                                                <div class=t26 style="font-size:1px;display:none;">&nbsp;&nbsp;</div>
-
-                                                                            </td>
-                                                                            <td class=t38 width=422.92523 valign=middle>
-                                                                                <table role=presentation width=100% cellpadding=0 cellspacing=0 class=t37 style="width:100%;">
-                                                                                    <tr>
-                                                                                        <td class=t34 style="width:22px;" width=22></td>
-                                                                                        <td class=t35>
-                                                                                            <table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;">
-                                                                                                <tr>
-                                                                                                    <td align=center>
-                                                                                                        <table class=t33 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                                                                            <tr>
-
-                                                                                                                <td class=t32 style="width:378.93px;">
-
-                                                                                                                    <p class=t31 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;">
-                                                        <span class=t28 style="margin:0;Margin:0;">Si tienes algun problema t&eacute;cnico para entrar en la plataforma por favor</span> <a class=t30 href="https://www.google.com" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#454545;" target=_blank><span class=t29 style="margin:0;Margin:0;font-style:italic;">Contactanos</span>
-                                                        </a>
-                                                        </p>
-                                                                                                                </td>
-                                                                                                            </tr>
-                                                                                                        </table>
-                                                                                                    </td>
-                                                                                                </tr>
-                                                                                            </table>
-                                                                                        </td>
-                                                                                        <td class=t36 style="width:22px;" width=22></td>
-                                                                                    </tr>
-                                                                                </table>
-                                                                            </td>
-                                                                            <td></td>
-                                                                        </tr>
-                                                                    </table>
-                                                                </div>
-                                                            </div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td>
-                                                <div class=t46 style="line-height:13px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            <td align=center>
-                                                <table class=t49 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
-                                                    <tr>
-                                                        <td class=t48>
-                                                            <p class=t47 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:13px;text-decoration:none;text-transform:none;direction:ltr;color:#949494;text-align:center;">Telf: +58 412 4956412</p>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                        <tr>
-                                            
-                                        </tr>
-                                    </table>
+                                    <p class=t12 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:bold;font-style:normal;font-size:18px;text-decoration:none;text-transform:none;direction:ltr;color:#222A55;text-align:left;">CLAVE TEMPORAL</p>
                                 </td>
                             </tr>
                         </table>
                     </td>
                 </tr>
                 <tr>
+                    <td>
+                        <div class=t15 style="line-height:14px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
+                    </td>
+                </tr>
+                <tr>
                     <td align=center>
-                        <table class=t56 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+                        <table class=t18 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
                             <tr>
-                                <td class=t55 style="width:560px;padding:20px 20px 20px 20px;">
 
-                                    <table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;"></table>
+                                <td class=t17 style="width:448px;">
+
+                                    <p class=t16 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:30px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;">'.$clave_tmp.'</p>
                                 </td>
                             </tr>
                         </table>
@@ -381,15 +269,126 @@ try {
         </td>
     </tr>
 </table>
-	</div>
-	<div class="gmail-mobile-forced-width" style="white-space: nowrap; font: 15px courier; line-height: 0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
-	</div>
+</td>
+</tr>
+<tr>
+<td>
+<div class=t43 style="line-height:5px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td align=center>
+<table class=t45 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+    <tr>
+
+        <td class=t44 style="width:510px;padding:19px 0 25px 0;">
+
+            <div class=t42 style="width:100%;text-align:left;">
+                <div class=t41 style="display:inline-block;">
+                    <table class=t40 role=presentation cellpadding=0 cellspacing=0 align=left valign=middle>
+                        <tr class=t39>
+                            <td></td>
+                            <td class=t27 width=175.07477 valign=middle>
+                                <table role=presentation width=100% cellpadding=0 cellspacing=0 class=t25 style="width:100%;">
+                                    <tr>
+                                        <td class=t22 style="width:22px;" width=22></td>
+                                        <td class=t23 style="background-color:transparent;">
+                                            <div style="font-size:0px;"><img class=t21 style="display:block;border:0;height:auto;width:100%;Margin:0;max-width:100%;" width=131.07476635514018 height=102.1875 alt="" src="https://app.wgdigital.com.ve/src/images/logo.jpg" /></div>
+                                        </td>
+                                        <td class=t24 style="width:22px;" width=22></td>
+                                    </tr>
+                                </table>
+
+                                <div class=t26 style="font-size:1px;display:none;">&nbsp;&nbsp;</div>
+
+                            </td>
+                            <td class=t38 width=422.92523 valign=middle>
+                                <table role=presentation width=100% cellpadding=0 cellspacing=0 class=t37 style="width:100%;">
+                                    <tr>
+                                        <td class=t34 style="width:22px;" width=22></td>
+                                        <td class=t35>
+                                            <table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;">
+                                                <tr>
+                                                    <td align=center>
+                                                        <table class=t33 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+                                                            <tr>
+
+                                                                <td class=t32 style="width:378.93px;">
+
+                                                                    <p class=t31 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:400;font-style:normal;font-size:16px;text-decoration:none;text-transform:none;direction:ltr;color:#454545;text-align:center;">
+        <span class=t28 style="margin:0;Margin:0;">Si tienes algun problema t&eacute;cnico para entrar en la plataforma por favor</span> <a class=t30 href="https://www.google.com" style="margin:0;Margin:0;font-weight:700;font-style:normal;text-decoration:none;direction:ltr;color:#454545;" target=_blank><span class=t29 style="margin:0;Margin:0;font-style:italic;">Contactanos</span>
+        </a>
+        </p>
+                                                                </td>
+                                                            </tr>
+                                                        </table>
+                                                    </td>
+                                                </tr>
+                                            </table>
+                                        </td>
+                                        <td class=t36 style="width:22px;" width=22></td>
+                                    </tr>
+                                </table>
+                            </td>
+                            <td></td>
+                        </tr>
+                    </table>
+                </div>
+            </div>
+        </td>
+    </tr>
+</table>
+</td>
+</tr>
+<tr>
+<td>
+<div class=t46 style="line-height:13px;font-size:1px;display:block;">&nbsp;&nbsp;</div>
+</td>
+</tr>
+<tr>
+<td align=center>
+<table class=t49 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+    <tr>
+        <td class=t48>
+            <p class=t47 style="margin:0;Margin:0;font-family:Poppins,BlinkMacSystemFont,Segoe UI,Helvetica Neue,Arial,sans-serif;line-height:22px;font-weight:500;font-style:normal;font-size:13px;text-decoration:none;text-transform:none;direction:ltr;color:#949494;text-align:center;">Telf: +58 412 4956412</p>
+        </td>
+    </tr>
+</table>
+</td>
+</tr>
+<tr>
+
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+<tr>
+<td align=center>
+<table class=t56 role=presentation cellpadding=0 cellspacing=0 style="Margin-left:auto;Margin-right:auto;">
+<tr>
+<td class=t55 style="width:560px;padding:20px 20px 20px 20px;">
+
+<table role=presentation width=100% cellpadding=0 cellspacing=0 style="width:100% !important;"></table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</td>
+</tr>
+</table>
+</div>
+<div class="gmail-mobile-forced-width" style="white-space: nowrap; font: 15px courier; line-height: 0;">&nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp; &nbsp;
+</div>
 </body>
 </html>';
 
-    $mail->send();
-    //echo "<script language='javascript'> alert('¡Se ha creado su registro!'); window.location.href='index.php'; </script>";
-    //echo '1';
+   $mail->send();
+    
 	} catch (Exception $e) {
     echo "Error en el envío del correo: {$mail->ErrorInfo}";
 	}
