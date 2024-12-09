@@ -58,7 +58,7 @@ $xrow = $xres->fetch_assoc();
 					<ul class="submenu">
 						<li><a href="banco">Bancos</a></li>
 						<li><a href="forma_pago">Forma de Pago</a></li>
-						<li><a href="#">Correlativos</a></li>
+						<!-- <li><a href="#">Correlativos</a></li> -->
 						<li><a href="tasa">Tasa BCV</a></li>
 						<li><a href="estados">Estados</a></li>
 						<li><a href="monto_doc">Monto Documento</a></li>
@@ -68,7 +68,7 @@ $xrow = $xres->fetch_assoc();
 			<?php 
 				if($xrow['pagos'] == 1) { ?>
 				<li>
-					<a href="calendar.html" class="dropdown-toggle no-arrow">
+					<a href="reportar_pago" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-calendar1"></span><span class="mtext">PAGOS</span>
 					</a>
 				</li>

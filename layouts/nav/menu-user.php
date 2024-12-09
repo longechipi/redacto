@@ -65,7 +65,7 @@ $xrow = $xres->fetch_assoc();
 			<?php 
 				if($xrow['pagos'] == 1) { ?>
 				<li>
-					<a href="calendar.html" class="dropdown-toggle no-arrow">
+					<a href="reportar_pago" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-calendar1"></span><span class="mtext">REPORTAR PAGOS</span>
 					</a>
 				</li>

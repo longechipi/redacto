@@ -60,9 +60,10 @@
         <div class="col-md-12">
             <div class="custom-control custom-checkbox mb-5">
                 <input type="checkbox" class="custom-control-input" id="customCheck1">
-                <a href="#" class="text-primary" data-toggle="modal" data-target="#terminos">Sí, Acepto los Terminos y Condiciones</a>
+                <label class="custom-control-label" for="customCheck1"><a href="#" class="text-primary" data-toggle="modal" data-target="#terminos">Sí, Acepto los Terminos y Condiciones</a> </label>
             </div>
         </div>
+                                    
     </div>
 </section>
 <?php include('modal/terminos.php'); ?>
