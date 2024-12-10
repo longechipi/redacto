@@ -83,9 +83,9 @@
 					type: 'POST',
 					data: $('#enviar').serialize(),
 					beforeSend: function() {
-					$('#loading').removeAttr('hidden');
-					$('#boton').attr('hidden', true);
-					$("#enviador").prop("disabled", true);
+						$('#loading').removeAttr('hidden');
+						$('#boton').attr('hidden', true);
+						$("#enviador").prop("disabled", true);
 					},
 					success: function(data){
 						console.log(data);

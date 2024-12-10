@@ -14,7 +14,7 @@ $fecha = date('Y-m-d');
 
     //------- ACTUALIZACION EN LA TABLA SI EL ESTADO ES IGUAL --------- //
     $a ="UPDATE importe_venta SET ciudad ='$ciudad', estado ='$estado', 
-    monto_usd = $divisa, tasa = $tasa, monto_bs = $bs, fecha = '$fecha' WHERE num_doc = '$num_doc' AND id_user = $id_user 
+    monto_usd = $divisa, tasa = $tasa, monto_bs = $bs, fecha = '$fecha' WHERE num_doc = '$num_doc'
     AND id_imp = $id ";
 
         if ($conn->query($a) === TRUE) {

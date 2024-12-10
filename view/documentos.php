@@ -59,15 +59,19 @@ session_start();
                             <td><?php echo $row['fecha_ini']; ?></td>
                             <td><?php echo $row['fecha_fin']; ?></td>
                             <td><?php echo $row['nom_sta']; ?></td>
+
                             <td>
-                            <?php if($privilegios != 1){?> 
-                                <a class="btn btn-primary btn-sm pago" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-credit-card"></i> Pagar</a>
-                                <a class="btn btn-danger btn-sm eliminar" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-trash"></i> Eliminar</a>
+                            <?php if($row['id_sta'] == 4 ){?> 
+                                <p>Verificando</p>
+                                <?php }elseif($privilegios == 1){?>
+                                    <a class="btn btn-primary ver" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-eye"></i> Ver</a>
                                 <?php }else{?>
-                                <a class="btn btn-primary ver" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-eye"></i> Ver</a>
+                                    <a class="btn btn-primary btn-sm pago" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-credit-card"></i> Pagar</a>
+                                    <a class="btn btn-danger btn-sm eliminar" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-trash"></i> Eliminar</a>
                             <?php } 
                             ?>
-                            </td>
+                            </td>>
+
                         </tr>
                         <?php } $conn->close(); ?>
                 </tbody>

@@ -41,7 +41,7 @@ function validarFecha(campo) {
     var fechaActualFormateada = añoActual + '-' + (mesActual < 10 ? '0' + mesActual : mesActual) + '-' + (diaActual < 10 ? '0' + diaActual : diaActual);
     var fechaIngresada = $(campo).val();
   
-    if (fechaIngresada >= fechaActualFormateada) {
+    if (fechaIngresada > fechaActualFormateada) {
       swal({
         title: 'Error',
         text: 'La Fecha no puede ser Superior a la Actual',

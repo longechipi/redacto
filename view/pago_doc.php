@@ -115,11 +115,12 @@ validar_post_char($id_doc, 'inicio');
                         <div class="tab-pane fade " id="vehiculo" role="tabpanel">
                             <div class="pd-20">
                                 <?php 
-                                //------- BUSCA SOLO VEHICULO --------//
-                                $a="SELECT * FROM vehiculo_venta WHERE num_doc = '$id_doc' AND id_user = $id_user ";
+                                //------- BUSCA SOLO VEHICULO USUARIO--------//
+                                $a="SELECT * FROM vehiculo_venta WHERE num_doc = '$id_doc'";
                                 $ares = $conn->query($a);
                                     if ($ares->num_rows > 0) {
                                         $row = $ares->fetch_assoc();
+                                        
                                         include('upd_doc/vehiculo.php');
                                     }
                                 ?>
@@ -129,7 +130,7 @@ validar_post_char($id_doc, 'inicio');
                             <div class="pd-20">
                                 <?php 
                                 //------- BUSCA SOLO VEHICULO --------//
-                                $a="SELECT * FROM importe_venta WHERE num_doc = '$id_doc' AND id_user = $id_user ";
+                                $a="SELECT * FROM importe_venta WHERE num_doc = '$id_doc'";
                                 $ares = $conn->query($a);
                                     if ($ares->num_rows > 0) {
                                         $row = $ares->fetch_assoc();

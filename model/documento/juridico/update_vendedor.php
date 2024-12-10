@@ -17,7 +17,7 @@ $exp = trim($_POST['exp']);
 //----------- ACTUALIZACION DE DATOS -----------//
 $a="UPDATE per_juridico SET nom_empresa = '$nom_emp', rif = '$rif', fec_registro = '$fec_reg', nom_registro = '$nom_reg', 
 tomo = '$tomo', nro = '$nro', protocolo = '$protocolo', expediente = '$exp'
-WHERE num_doc = '$num_doc' AND id_user = $id_user AND id_jur = $id AND tip_desc = 'V'";
+WHERE num_doc = '$num_doc' AND id_jur = $id AND tip_desc = 'V'";
 if ($conn->query($a) === TRUE) {
     echo json_encode(array('status' => 'success', 'message' => 'Se Actualizo Exitosamente el Vendedor'));
 } else {

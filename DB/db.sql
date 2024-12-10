@@ -251,3 +251,24 @@ CREATE TABLE `monto_doc` (
   `id_sta` int NOT NULL,
   FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
 );
+---------------------------------------------------------------------------
+CREATE TABLE `reporte_pago` (
+  `id_pag` int PRIMARY KEY NOT NULL AUTO_INCREMENT,
+  `id_user` int NOT NULL,
+  `fecha_pago` DATE NOT NULL,
+  `monto` decimal(18,2) NOT NULL,
+  `tip_pag` int NOT NULL,
+  `ref` varchar(100) NOT NULL,
+  `id_ban` int NOT NULL,
+  `otro_ban` varchar(100) NULL,
+  `capture` varchar(100) NOT NULL,
+  `num_doc` varchar(100) NOT NULL,
+  `id_sta` int NOT NULL,
+  `fec_cargo` DATE NOT NULL,
+  
+  FOREIGN KEY (`id_user`) REFERENCES `users`(`id_user`),
+  FOREIGN KEY (`tip_pag`) REFERENCES `forma_pago` (`id_pag`),
+  FOREIGN KEY (`id_ban`) REFERENCES `banco` (`id_ban`),
+  FOREIGN KEY (`id_sta`) REFERENCES `estatus` (`id_sta`)
+  
+);

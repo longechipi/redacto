@@ -16,7 +16,7 @@ $cedula = trim($_POST['cedula']);
 //----------- ACTUALIZACION DE DATOS -----------//
 $a="UPDATE per_natural SET nombre1 = '$nombre1', nombre2 = '$nombre2', apellido1 = '$apellido1', apellido2 = '$apellido2', 
 nac = '$nac', cedula = '$cedula', civil = '$edo_civil'
-WHERE id_user = $id_user AND num_doc = '$num_doc' AND tip_per = 1 AND id_nat = $id AND tip_desc = 'C'";
+WHERE num_doc = '$num_doc' AND tip_per = 1 AND id_nat = $id AND tip_desc = 'C'";
 if ($conn->query($a) === TRUE) {
     echo json_encode(array('status' => 'success', 'message' => 'Se Actualizo Exitosamente el Comprador'));
 } else {

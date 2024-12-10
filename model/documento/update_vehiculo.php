@@ -22,7 +22,7 @@ $serial_motor = empty($_POST['serial_motor']) ? trim($_POST['ser_motor']) : trim
 $a="UPDATE vehiculo_venta SET reg_vehiculo = '$reg_veh', fec_certi= '$fec_cert', clase = '$clase', modelo = '$modelo', 
 anio = '$ano_veh', tipo = '$tipo', color = '$color', placa = '$placa', marca = '$marca', uso = '$uso', otro_uso = '$otro_uso', 
 serial_carro = '$serial_carro', serial_motor = '$serial_motor' 
-WHERE id_user = $id_user AND num_doc = '$num_doc' AND id_ven = $id";
+WHERE num_doc = '$num_doc' AND id_ven = $id";
 if ($conn->query($a) === TRUE) {
     echo json_encode(array('status' => 'success', 'message' => 'Se Actualizo Exitosamente el Vendedor'));
 } else {

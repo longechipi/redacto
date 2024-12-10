@@ -22,7 +22,7 @@ $xrow = $xres->fetch_assoc();
 				<ul class="submenu">
 					<li><a href="new_doc">Nuevo Documento</a></li>
 					<li><a href="documentos">Documentos Guardados</a></li>
-					<li><a href="privilegios">Documentos Pagados</a></li>
+					<li><a href="pagos">Documentos Pagados</a></li>
 					<!-- <li><a href="form-wizard.html">Form Wizard</a></li>
 					<li><a href="html5-editor.html">HTML5 Editor</a></li>
 					<li><a href="form-pickers.html">Form Pickers</a></li>
@@ -68,7 +68,7 @@ $xrow = $xres->fetch_assoc();
 			<?php 
 				if($xrow['pagos'] == 1) { ?>
 				<li>
-					<a href="reportar_pago" class="dropdown-toggle no-arrow">
+					<a href="pagos" class="dropdown-toggle no-arrow">
 						<span class="micon dw dw-calendar1"></span><span class="mtext">PAGOS</span>
 					</a>
 				</li>

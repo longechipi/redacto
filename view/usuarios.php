@@ -61,6 +61,7 @@ session_start();
                                     </a>
                                     <div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
                                         <a class="dropdown-item" href="#" data-user-id=<?php echo $row['id_user']?>><i class="dw dw-edit2"></i> Editar</a>
+                                        <a class="dropdown-item eliminar" href="#" data-user-id=<?php echo $row['id_user']?>><i class="icon-copy dw dw-trash1"></i>Eliminar</a>
                                     </div>
                                 </div>
                             </td>
@@ -93,6 +94,15 @@ $(document).ready(function(){
         $('body').append(form);
         form.submit();
     });
+
+    $(document).on('click', '.eliminar', function() {
+        var userId = $(this).data('user-id');
+        var form = $('<form method="POST" action="asdasd"></form>');
+        form.append('<input type="hidden" name="user_id" value="' + userId + '">');
+        $('body').append(form);
+        form.submit();
+    });
+
 });
 </script>
 
