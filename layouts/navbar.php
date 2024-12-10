@@ -95,7 +95,7 @@ if ($zres->num_rows > 0) {
 						<span class="user-name"><?php echo $_SESSION['nombre']; ?></span>
 					</a>
 					<div class="dropdown-menu dropdown-menu-right dropdown-menu-icon-list">
-						<a class="dropdown-item" href="profile.html"><i class="dw dw-user1"></i> Perfil</a>
+						<a class="dropdown-item" href="perfil"><i class="dw dw-user1"></i> Perfil</a>
 						<!-- <a class="dropdown-item" href="profile.html"><i class="dw dw-settings2"></i> Setting</a> -->
 						<a class="dropdown-item" href="faq.html"><i class="dw dw-help"></i> Ayuda</a>
 						<a class="dropdown-item" href="../salir.php"><i class="dw dw-logout"></i> Salir</a>

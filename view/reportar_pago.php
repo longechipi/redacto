@@ -89,6 +89,32 @@ session_start();
                         </div>
                     </div>
 
+                    <div class="col-md-4 col-sm-12">
+                        <div class="form-group">
+                            <label>Seleccione el Documento </label> <span class="text-danger">(*)</span>
+                            <select name="ban" class="form-control" id="ban" required>
+                                <option value="" selected disabled>SELECCIONAR</option>
+                                 <?php
+
+                                $b="SELECT IV.id_user, IV.num_doc, IV.id_sta
+                                    FROM importe_venta IV
+                                    LEFT JOIN estatus E ON IV.id_sta = E.id_sta
+                                    LEFT JOIN users U ON IV.id_user = U.id_user
+                                    LEFT JOIN documentos_tmp DT ON IV.num_doc = DT.num_doc
+                                    WHERE IV.id_user = $id_user AND IV.id_sta = 3
+                                    ORDER BY fecha_fin DESC";
+                                    $bres= $conn->query($b);
+                                    while($brow = $bres->fetch_assoc()){
+                                        echo "<option value='".$brow['num_doc']."'>".$brow['num_doc']."</option>";
+                                    }
+                                    ?>
+
+                            </select>
+                            <small>Recuerde Seleccionar el Documento Correcto</small>
+                        </div>
+                    </div>
+
+
                     <div class="col-md-12">
                         <div class="text-center">
                             <button type="submit" class="btn btn-primary"><i class="icon-copy dw dw-floppy-disk"></i>&nbsp;GUARDAR</button>
