@@ -29,4 +29,6 @@
 	<script src="https://cdn.jsdelivr.net/npm/intl-tel-input@24.6.0/build/js/intlTelInput.min.js"></script>
 
 	<link rel="stylesheet" type="text/css" href="../src/plugins/jquery-steps/jquery.steps.css">
+
+	<link rel="stylesheet" type="text/css" href="../src/plugins/fancybox/dist/jquery.fancybox.css">
 </head>

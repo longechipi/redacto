@@ -57,7 +57,7 @@ session_start();
                             <td><?php echo trim($row['fec_cargo']);?></td>
                             <td><?php echo trim($row['nom_sta']);?></td>
                             <td>
-                                <a class="btn btn-primary sm" href="#" data-tas-id=<?php echo $row['id_pag']?>><i class="icon-copy dw dw-eye"></i> Detalle</a>
+                                <a class="btn btn-primary sm ver" href="#" data-id-pag=<?php echo $row['id_pag']?>><i class="icon-copy dw dw-eye"></i> Detalle</a>
                             </td>
                         </tr>
                         <?php } $conn->close(); ?>
@@ -81,10 +81,10 @@ $(document).ready(function(){
         },
     });
 
-    $(document).on('click', '.dropdown-item', function() {
-        var id_pri = $(this).data('id_pri');
-        var form = $('<form method="POST" action="edit_privilegio"></form>');
-        form.append('<input type="hidden" name="id_pri" value="' + id_pri + '">');
+    $(document).on('click', '.ver', function() {
+        var id_pago = $(this).data('id-pag');
+        var form = $('<form method="POST" action="ver_pago"></form>');
+        form.append('<input type="hidden" name="id_pag" value="' + id_pago + '">');
         $('body').append(form);
         form.submit();
     });

@@ -21,7 +21,7 @@ session_start();
             </nav>
 
         <div class="card-box pd-20 height-100-p mb-30">
-            <hr>
+
             <table class="data-table table stripe hover nowrap">
                 <thead>
                     <tr>
@@ -62,7 +62,7 @@ session_start();
 
                             <td>
                             <?php if($row['id_sta'] == 4 ){?> 
-                                <p>Verificando</p>
+                                <p>Verificando pago</p>
                                 <?php }elseif($privilegios == 1){?>
                                     <a class="btn btn-primary ver" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-eye"></i> Ver</a>
                                 <?php }else{?>
@@ -70,7 +70,7 @@ session_start();
                                     <a class="btn btn-danger btn-sm eliminar" href="#" data-id-doc=<?php echo $row['num_doc']?>><i class="icon-copy dw dw-trash"></i> Eliminar</a>
                             <?php } 
                             ?>
-                            </td>>
+                            </td>
 
                         </tr>
                         <?php } $conn->close(); ?>
